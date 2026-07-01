@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ligne D — Révision Permis Bus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#0F131A;
+  --panel:#1A2029;
+  --panel2:#212A37;
+  --line:#2C3646;
+  --yellow:#FFC53D;
+  --teal:#2BB3A3;
+  --red:#FF5A4E;
+  --green:#3ECF8E;
+  --text:#EDEAE2;
+  --muted:#8D97A5;
+  --radius:14px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:
+    radial-gradient(circle at 15% -10%, rgba(255,197,61,.09), transparent 40%),
+    radial-gradient(circle at 100% 0%, rgba(43,179,163,.12), transparent 45%),
+    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNjAnIGhlaWdodD0nMjYwJz4KPGxpbmUgeDE9JzAnIHkxPScyNjAnIHgyPScyNjAnIHkyPScwJyBzdHJva2U9J3JnYmEoMjU1LDI1NSwyNTUsMC4wNCknIHN0cm9rZS13aWR0aD0nMycgc3Ryb2tlLWRhc2hhcnJheT0nMTYgMTYnLz4KPGcgdHJhbnNmb3JtPSd0cmFuc2xhdGUoMTUwLDMwKSByb3RhdGUoOCknIGZpbGw9J3JnYmEoMjU1LDE5Nyw2MSwwLjA0NSknPgo8cmVjdCB4PScwJyB5PScxMCcgd2lkdGg9JzcyJyBoZWlnaHQ9JzM0JyByeD0nNycvPgo8cmVjdCB4PSc3JyB5PScxNycgd2lkdGg9JzEzJyBoZWlnaHQ9JzExJyByeD0nMicgZmlsbD0ncmdiYSgxNSwxOSwyNiwwLjU1KScvPgo8cmVjdCB4PScyNCcgeT0nMTcnIHdpZHRoPScxMycgaGVpZ2h0PScxMScgcng9JzInIGZpbGw9J3JnYmEoMTUsMTksMjYsMC41NSknLz4KPHJlY3QgeD0nNDEnIHk9JzE3JyB3aWR0aD0nMTMnIGhlaWdodD0nMTEnIHJ4PScyJyBmaWxsPSdyZ2JhKDE1LDE5LDI2LDAuNTUpJy8+CjxyZWN0IHg9JzU4JyB5PScxNycgd2lkdGg9JzknIGhlaWdodD0nMTEnIHJ4PScyJyBmaWxsPSdyZ2JhKDE1LDE5LDI2LDAuNTUpJy8+CjxjaXJjbGUgY3g9JzE2JyBjeT0nNDYnIHI9JzYnLz4KPGNpcmNsZSBjeD0nNTgnIGN5PSc0Nicgcj0nNicvPgo8L2c+CjxnIHRyYW5zZm9ybT0ndHJhbnNsYXRlKDE1LDE1MCkgcm90YXRlKC02KSBzY2FsZSgwLjcpJyBmaWxsPSdyZ2JhKDQzLDE3OSwxNjMsMC4wNSknPgo8cmVjdCB4PScwJyB5PScxMCcgd2lkdGg9JzcyJyBoZWlnaHQ9JzM0JyByeD0nNycvPgo8cmVjdCB4PSc3JyB5PScxNycgd2lkdGg9JzEzJyBoZWlnaHQ9JzExJyByeD0nMicgZmlsbD0ncmdiYSgxNSwxOSwyNiwwLjU1KScvPgo8cmVjdCB4PScyNCcgeT0nMTcnIHdpZHRoPScxMycgaGVpZ2h0PScxMScgcng9JzInIGZpbGw9J3JnYmEoMTUsMTksMjYsMC41NSknLz4KPHJlY3QgeD0nNDEnIHk9JzE3JyB3aWR0aD0nMTMnIGhlaWdodD0nMTEnIHJ4PScyJyBmaWxsPSdyZ2JhKDE1LDE5LDI2LDAuNTUpJy8+CjxyZWN0IHg9JzU4JyB5PScxNycgd2lkdGg9JzknIGhlaWdodD0nMTEnIHJ4PScyJyBmaWxsPSdyZ2JhKDE1LDE5LDI2LDAuNTUpJy8+CjxjaXJjbGUgY3g9JzE2JyBjeT0nNDYnIHI9JzYnLz4KPGNpcmNsZSBjeD0nNTgnIGN5PSc0Nicgcj0nNicvPgo8L2c+Cjwvc3ZnPgo=") repeat,
+    var(--asphalt);
+  background-attachment:fixed, fixed, fixed, fixed;
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+  padding:0 0 60px;
+}
+.wrap{max-width:980px;margin:0 auto;padding:24px 18px 0;}
+
+/* ===== Header / route line nav ===== */
+.headline{display:flex;align-items:baseline;gap:12px;margin-bottom:4px;flex-wrap:wrap;}
+.headline h1{
+  font-family:'Oswald',sans-serif;
+  font-weight:700;
+  font-size:clamp(28px,5vw,40px);
+  letter-spacing:.5px;
+  margin:0;
+  color:var(--yellow);
+  text-transform:uppercase;
+}
+.headline .sub{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:13px;}
+.tagline{color:var(--muted);margin:2px 0 22px;font-size:14.5px;}
+
+.routeline{position:relative;display:flex;justify-content:space-between;margin:26px 0 30px;padding:0 4px;}
+.routeline::before{
+  content:"";position:absolute;top:15px;left:20px;right:20px;height:3px;
+  background:repeating-linear-gradient(90deg,var(--line) 0 10px, transparent 10px 18px);
+  z-index:0;
+}
+.stop{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;background:none;border:none;color:var(--muted);flex:1;padding:0;font-family:'Inter',sans-serif;}
+.stop .dot{width:32px;height:32px;border-radius:50%;background:var(--panel2);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:15px;transition:.2s;}
+.stop span.lbl{font-size:11.5px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;}
+.stop.active .dot{background:var(--yellow);border-color:var(--yellow);color:#10141A;box-shadow:0 0 0 5px rgba(255,197,61,.15);}
+.stop.active span.lbl{color:var(--yellow);}
+.stop:hover .dot{border-color:var(--yellow);}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:18px;}
+.hero-illust{border-radius:var(--radius);overflow:hidden;margin-bottom:18px;border:1px solid var(--line);line-height:0;}
+.hero-illust svg{width:100%;height:auto;display:block;max-height:180px;}
+.panel h2{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.4px;font-size:20px;margin:0 0 14px;color:var(--text);}
+.panel h2 .accent{color:var(--yellow);}
+
+/* ===== Home ===== */
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:center;}
+@media(max-width:680px){.hero{grid-template-columns:1fr;}}
+.hero h2{font-family:'Oswald',sans-serif;font-size:26px;text-transform:none;letter-spacing:0;line-height:1.25;}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;}
+.stat{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:100px;}
+.stat b{display:block;font-family:'JetBrains Mono',monospace;font-size:22px;color:var(--yellow);}
+.stat span{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;}
+
+.gauge-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;}
+.gauge{position:relative;width:170px;height:170px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.gauge .ring{position:absolute;inset:0;border-radius:50%;background:conic-gradient(var(--teal) calc(var(--pct,0)*1%), var(--line) 0);mask:radial-gradient(farthest-side,transparent calc(100% - 16px),#000 calc(100% - 15px));-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 16px),#000 calc(100% - 15px));}
+.gauge .center{position:relative;text-align:center;}
+.gauge .center b{font-family:'JetBrains Mono',monospace;font-size:30px;display:block;color:var(--text);}
+.gauge .center span{font-size:11px;color:var(--muted);text-transform:uppercase;}
+.gauge-cap{font-size:12px;color:var(--muted);text-align:center;}
+
+/* ===== Series grid ===== */
+.series-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;}
+.series-card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:.15s;position:relative;overflow:hidden;}
+.series-card:hover{border-color:var(--yellow);transform:translateY(-2px);}
+.series-card .num{font-family:'JetBrains Mono',monospace;color:var(--yellow);font-size:12px;letter-spacing:1px;}
+.series-card h3{font-family:'Oswald',sans-serif;font-size:17px;margin:6px 0 8px;text-transform:none;letter-spacing:0;}
+.series-card .meta{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;}
+.badge-score{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;padding:2px 8px;border-radius:20px;background:var(--line);color:var(--muted);}
+.badge-score.done{background:rgba(62,207,142,.15);color:var(--green);}
+
+/* ===== Quiz ===== */
+.qz-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px;}
+.qz-progress{flex:1;height:8px;background:var(--line);border-radius:6px;margin:0 14px;overflow:hidden;min-width:120px;}
+.qz-progress i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--yellow));border-radius:6px;transition:width .3s;}
+.qz-count{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);white-space:nowrap;}
+.back-link{background:none;border:none;color:var(--muted);cursor:pointer;font-family:'Inter';font-size:13px;display:flex;align-items:center;gap:6px;padding:4px 0;}
+.back-link:hover{color:var(--yellow);}
+
+.qcard{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:20px;}
+.qcard .qtext{font-family:'Oswald',sans-serif;font-size:19px;line-height:1.35;margin-bottom:18px;}
+.choice{display:block;width:100%;text-align:left;background:var(--panel);border:1.5px solid var(--line);color:var(--text);padding:13px 16px;border-radius:10px;margin-bottom:10px;cursor:pointer;font-size:14.5px;font-family:'Inter';transition:.15s;}
+.choice:hover:not(:disabled){border-color:var(--yellow);}
+.choice.correct{border-color:var(--green);background:rgba(62,207,142,.12);}
+.choice.wrong{border-color:var(--red);background:rgba(255,90,78,.12);}
+.choice:disabled{cursor:default;opacity:.85;}
+.explain{margin-top:14px;padding:14px 16px;border-radius:10px;background:var(--panel);border-left:3px solid var(--teal);font-size:13.5px;color:var(--muted);line-height:1.5;display:none;}
+.explain.show{display:block;}
+.explain b{color:var(--text);}
+.qz-actions{display:flex;justify-content:flex-end;margin-top:16px;}
+.btn{background:var(--yellow);color:#141922;border:none;padding:11px 22px;border-radius:9px;font-weight:700;font-family:'Inter';cursor:pointer;font-size:14px;transition:.15s;}
+.btn:hover{filter:brightness(1.08);}
+.btn:disabled{background:var(--line);color:var(--muted);cursor:not-allowed;}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--text);}
+.btn.ghost:hover{border-color:var(--yellow);}
+.btn.teal{background:var(--teal);}
+
+.result-box{text-align:center;padding:10px 0 4px;}
+.result-box h3{font-family:'Oswald',sans-serif;font-size:24px;margin:14px 0 4px;}
+.result-actions{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap;}
+
+/* ===== Fiches ===== */
+.fiche-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.fiche-tab{background:var(--panel2);border:1px solid var(--line);color:var(--muted);padding:8px 14px;border-radius:20px;font-size:13px;cursor:pointer;font-family:'Inter';font-weight:600;}
+.fiche-tab.active{background:var(--yellow);color:#10141A;border-color:var(--yellow);}
+.checklist{list-style:none;padding:0;margin:0;}
+.checklist li{display:flex;gap:12px;align-items:flex-start;padding:11px 12px;border-radius:9px;margin-bottom:6px;background:var(--panel2);border:1px solid var(--line);}
+.checklist li.checked{opacity:.55;}
+.checklist li.checked b{text-decoration:line-through;}
+.checklist input[type=checkbox]{width:19px;height:19px;accent-color:var(--teal);margin-top:2px;flex-shrink:0;cursor:pointer;}
+.checklist .txt b{display:block;font-size:14px;margin-bottom:2px;}
+.checklist .txt span{font-size:12.5px;color:var(--muted);line-height:1.4;}
+.fiche-note{background:rgba(255,197,61,.08);border:1px solid rgba(255,197,61,.3);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text);margin-top:14px;line-height:1.55;}
+.reset-check{background:none;border:none;color:var(--muted);font-size:12px;cursor:pointer;text-decoration:underline;margin-top:10px;}
+
+.ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-top:4px;}
+.ref-card{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:14px;}
+.ref-card h4{margin:0 0 8px;font-family:'Oswald',sans-serif;font-size:14px;color:var(--yellow);text-transform:uppercase;letter-spacing:.3px;}
+.ref-card ul{margin:0;padding-left:18px;font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* ===== Memos ===== */
+.memo-input{display:flex;gap:10px;margin-bottom:16px;}
+.memo-input textarea{flex:1;background:var(--panel2);border:1.5px solid var(--line);border-radius:10px;color:var(--text);padding:12px 14px;font-family:'Inter';font-size:14px;resize:vertical;min-height:60px;}
+.memo-input textarea:focus{outline:none;border-color:var(--teal);}
+.memo-list{display:flex;flex-direction:column;gap:10px;}
+.memo{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:10px;padding:13px 15px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start;}
+.memo p{margin:0;font-size:14px;line-height:1.5;white-space:pre-wrap;}
+.memo .date{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-top:6px;display:block;}
+.memo button{background:none;border:none;color:var(--muted);cursor:pointer;font-size:17px;flex-shrink:0;line-height:1;padding:2px 4px;}
+.memo button:hover{color:var(--red);}
+.empty{color:var(--muted);font-size:13.5px;text-align:center;padding:26px 10px;}
+
+/* ===== Résultats ===== */
+.hist-row{display:flex;justify-content:space-between;align-items:center;padding:13px 14px;border-radius:10px;background:var(--panel2);border:1px solid var(--line);margin-bottom:8px;flex-wrap:wrap;gap:6px;}
+.hist-row .left b{display:block;font-size:14px;}
+.hist-row .left span{font-size:11.5px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+.hist-score{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px;padding:4px 12px;border-radius:20px;}
+.hist-score.good{background:rgba(62,207,142,.15);color:var(--green);}
+.hist-score.mid{background:rgba(255,197,61,.15);color:var(--yellow);}
+.hist-score.low{background:rgba(255,90,78,.15);color:var(--red);}
+.mail-box{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line);}
+.mail-box input{flex:1;min-width:200px;background:var(--panel2);border:1.5px solid var(--line);border-radius:9px;color:var(--text);padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.mail-box input:focus{outline:none;border-color:var(--teal);}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--panel2);border:1px solid var(--teal);color:var(--text);padding:11px 20px;border-radius:30px;font-size:13.5px;box-shadow:0 8px 24px rgba(0,0,0,.4);z-index:99;opacity:0;pointer-events:none;transition:.25s;}
+.toast.show{opacity:1;transform:translate(-50%,-6px);}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:30px;font-family:'JetBrains Mono',monospace;}
+
+/* ===== Mobile refinements ===== */
+@media(max-width:480px){
+  .wrap{padding:16px 12px 0;}
+  .headline h1{font-size:24px;}
+  .headline .sub{font-size:11px;}
+  .tagline{font-size:13px;}
+  .panel{padding:15px;border-radius:12px;}
+  .panel h2{font-size:17px;}
+  .routeline{margin:18px 0 22px;padding:0;}
+  .routeline::before{left:14px;right:14px;top:13px;}
+  .stop .dot{width:28px;height:28px;font-size:13px;}
+  .stop span.lbl{font-size:9.5px;letter-spacing:0;}
+  .hero{gap:16px;}
+  .gauge{width:130px;height:130px;}
+  .gauge .center b{font-size:24px;}
+  .stats{gap:8px;}
+  .stat{padding:10px 12px;min-width:80px;}
+  .stat b{font-size:18px;}
+  .series-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .series-card{padding:12px;}
+  .series-card h3{font-size:14.5px;}
+  .qcard{padding:15px;}
+  .qcard .qtext{font-size:16.5px;}
+  .choice{padding:11px 13px;font-size:13.5px;}
+  .qz-progress{margin:0 8px;}
+  .fiche-tabs{gap:6px;}
+  .fiche-tab{padding:7px 11px;font-size:12px;}
+  .checklist li{padding:10px;}
+  .memo-input{flex-direction:column;}
+  .memo-input button{align-self:stretch !important;}
+  .mail-box{flex-direction:column;align-items:stretch;}
+  .mail-box button{width:100%;}
+  .hist-row{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:360px){
+  .stop span.lbl{display:none;}
+  .stop .dot{width:24px;height:24px;font-size:11px;}
+}
+
+/* ===== Auth ===== */
+body.auth-mode #nav{display:none;}
+.user-badge{margin-left:auto;font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:8px;}
+.user-badge b{color:var(--teal);}
+.user-badge button{background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:3px 9px;font-size:11px;cursor:pointer;font-family:'Inter';}
+.user-badge button:hover{border-color:var(--red);color:var(--red);}
+.auth-panel{max-width:380px;margin:60px auto 0;}
+.auth-form{display:flex;flex-direction:column;gap:14px;margin-top:16px;}
+.auth-form label{font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;}
+.auth-form input{background:var(--panel2);border:1.5px solid var(--line);border-radius:9px;color:var(--text);padding:11px 13px;font-family:'Inter';font-size:14px;font-weight:400;text-transform:none;letter-spacing:0;}
+.auth-form input:focus{outline:none;border-color:var(--teal);}
+.auth-error{background:rgba(255,90,78,.12);border:1px solid rgba(255,90,78,.35);color:var(--red);font-size:13px;padding:10px 13px;border-radius:9px;margin-top:10px;}
+.auth-switch{text-align:center;font-size:13px;color:var(--muted);margin-top:16px;}
+.auth-switch a{color:var(--yellow);text-decoration:none;font-weight:600;}
+.auth-switch a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="headline">
+    <h1>🚌 Ligne D</h1>
+    <span class="sub">Terminus : permis bus (D)</span>
+    <span class="user-badge" id="userBadge"></span>
+  </div>
+  <p class="tagline">Séries de code, fiches véhicule et mémos — tout en un, accessible par ce lien.</p>
+
+  <nav class="routeline" id="nav"></nav>
+
+  <div id="view"></div>
+
+  <footer>Support de révision non officiel — vérifie toujours les points sensibles avec ton auto-école avant l'examen.</footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================= DATA ============================= */
+const SERIES = [
+{title:"Gabarit et vérifications extérieures",icon:"🔧",questions:[
+{q:"Que devez-vous vérifier en priorité sur les pneumatiques avant de prendre la route ?",c:["La couleur des jantes","L'état, la pression et la profondeur des sculptures","Le kilométrage du véhicule","La marque des pneus"],a:1,e:"L'état général (coupures, hernies), la pression et la profondeur des sculptures (mini légal 1,6 mm) conditionnent l'adhérence, surtout sur un véhicule lourd chargé de passagers."},
+{q:"La girouette (indicateur de destination) doit être :",c:["Allumée uniquement la nuit","Correctement réglée et lisible avant le départ","Optionnelle sur les autocars","Vérifiée uniquement par le service technique"],a:1,e:"Une girouette lisible informe les usagers de la ligne/destination et fait partie du contrôle visuel avant prise de service."},
+{q:"Avant de démarrer, le contrôle des feux (croisement, route, stop, clignotants, détresse) doit être :",c:["Fait une fois par semaine","Fait à chaque prise de service","Facultatif de jour","Réservé au garage"],a:1,e:"Le tour du véhicule avant chaque prise de service inclut le contrôle de tous les feux, essentiel pour la visibilité envers les autres usagers."},
+{q:"Que signifie la hauteur affichée en cabine du véhicule ?",c:["Elle rappelle uniquement le poids du véhicule","Elle indique la hauteur pour éviter les ponts et tunnels trop bas","Elle concerne la largeur des portes","Elle est purement décorative"],a:1,e:"La hauteur du véhicule doit être connue et rappelée en cabine pour anticiper les obstacles (ponts, porches, parkings couverts)."},
+{q:"Les rétroviseurs extérieurs doivent être vérifiés pour :",c:["Leur propreté et leur réglage","Leur couleur","Leur poids","Leur compatibilité GPS"],a:0,e:"Des rétroviseurs propres et bien réglés réduisent les angles morts, particulièrement importants sur un véhicule long comme un autobus."},
+{q:"En cas de fuite constatée sous le véhicule lors de la vérification extérieure, vous devez :",c:["Démarrer quand même si le trajet est court","Ignorer si la fuite est petite","Ne pas prendre la route et signaler l'anomalie","Ajouter du liquide et repartir sans chercher l'origine"],a:2,e:"Toute fuite doit être analysée avant départ ; rouler avec une fuite non identifiée peut entraîner une panne ou un accident."},
+{q:"La vignette de contrôle technique et d'assurance doivent être :",c:["Rangées dans le coffre","Visibles et à jour","Optionnelles pour le transport en commun","Vérifiées une fois par an seulement"],a:1,e:"Les documents et vignettes doivent être en cours de validité et apposés de façon visible sur le véhicule."},
+{q:"Les portes d'accès passagers doivent être testées avant le départ pour vérifier :",c:["Leur couleur","Leur ouverture, fermeture et la sécurité anti-pincement","Le nombre de sièges","Rien, elles sont automatiques"],a:1,e:"Le bon fonctionnement des portes et de leurs sécurités est indispensable pour la sécurité des passagers à la montée/descente."}
+]},
+{title:"Vérifications intérieures et poste de conduite",icon:"🪑",questions:[
+{q:"Avant de démarrer, le niveau d'huile moteur doit être vérifié :",c:["Moteur chaud, véhicule en pente","Moteur arrêté depuis peu, véhicule sur terrain plat","Jamais, c'est le garage qui s'en charge","Uniquement en cas de voyant allumé"],a:1,e:"Un contrôle fiable se fait moteur arrêté depuis peu, sur sol plat, pour une lecture précise de la jauge."},
+{q:"Le frein de service et le frein de parking doivent être testés :",c:["Une fois par mois","À chaque prise de service, avant de partir","Uniquement sur autoroute","Seulement par le mécanicien"],a:1,e:"Sur un véhicule transportant des passagers, les freins doivent être contrôlés systématiquement avant chaque service."},
+{q:"Le rôle du chronotachygraphe est de :",c:["Calculer la consommation de carburant","Enregistrer les temps de conduite, pause et repos","Indiquer la météo","Compter les passagers"],a:1,e:"Le chronotachygraphe enregistre automatiquement les activités du conducteur pour le contrôle de la réglementation sociale."},
+{q:"La carte conducteur doit être insérée dans le chronotachygraphe :",c:["Uniquement en fin de service","Dès la prise de service, avant tout déplacement","Seulement si un contrôle est prévu","Ce n'est pas obligatoire pour le transport de personnes"],a:1,e:"La carte conducteur doit être insérée dès le début de l'activité pour garantir l'enregistrement correct des temps."},
+{q:"Les ceintures de sécurité à bord d'un autocar équipé doivent être :",c:["Portées uniquement par le conducteur","En bon état, leur port rappelé aux passagers","Optionnelles pour les trajets courts","Retirées si inconfortables"],a:1,e:"Lorsque le véhicule en est équipé, le conducteur s'assure de leur bon état et informe les passagers de l'obligation de les porter."},
+{q:"Une issue de secours doit être vérifiée pour s'assurer :",c:["Qu'elle est verrouillée en permanence","Qu'elle est accessible, signalée et fonctionnelle","Qu'elle sert de rangement","Qu'elle n'est utile qu'en cas d'incendie"],a:1,e:"Les issues de secours doivent rester dégagées, clairement signalées et opérationnelles à tout moment."},
+{q:"Le tableau de bord doit être contrôlé au démarrage pour vérifier notamment :",c:["L'heure uniquement","Les voyants d'alerte (freins, huile, température, carburant)","La radio","Le GPS uniquement"],a:1,e:"Les voyants d'alerte signalent les anomalies mécaniques à traiter avant le départ."},
+{q:"L'extincteur présent à bord doit être :",c:["Accepté même périmé s'il est récent","Vérifié : date de validité, pression, accessibilité","Rangé hors de portée pour éviter le vol","Facultatif sur autocar"],a:1,e:"L'extincteur est un équipement de sécurité obligatoire dont la validité et l'accessibilité doivent être contrôlées régulièrement."}
+]},
+{title:"Réglementation sociale — temps de conduite et repos",icon:"⏱️",questions:[
+{q:"La durée de conduite continue avant une pause obligatoire est de :",c:["2 heures","4h30","6 heures","8 heures"],a:1,e:"Le règlement européen impose une pause d'au moins 45 minutes après 4h30 de conduite continue."},
+{q:"La pause de 45 minutes peut être fractionnée en :",c:["3 pauses de 15 minutes","15 min puis 30 min, dans cet ordre","30 min puis 15 min","Elle ne peut jamais être fractionnée"],a:1,e:"Le fractionnement autorisé est 15 minutes suivies de 30 minutes, dans cet ordre précis."},
+{q:"La durée de conduite journalière ne doit normalement pas dépasser :",c:["8 heures","9 heures (extensible à 10h deux fois/semaine)","11 heures","12 heures"],a:1,e:"La conduite journalière est limitée à 9h, portée exceptionnellement à 10h maximum deux fois dans la semaine."},
+{q:"Le repos journalier normal est de :",c:["8 heures","9 heures","11 heures (réductible à 9h, trois fois/semaine)","24 heures"],a:2,e:"Le repos journalier normal est de 11h consécutives, réductible à 9h au maximum trois fois entre deux repos hebdomadaires."},
+{q:"Le repos hebdomadaire normal est de :",c:["24 heures","45 heures (réductible à 24h sous conditions)","36 heures","20 heures"],a:1,e:"Le repos hebdomadaire normal est de 45h, réductible à 24h sous conditions de compensation ultérieure."},
+{q:"En cas de contrôle routier, le conducteur doit pouvoir présenter :",c:["Uniquement son permis de conduire","Sa carte conducteur et les données récentes du chronotachygraphe","Le carnet d'entretien uniquement","Rien, le contrôle se fait à distance"],a:1,e:"Le conducteur doit pouvoir justifier ses temps de conduite/repos via sa carte conducteur et les enregistrements du chronotachygraphe."},
+{q:"Que risque un conducteur qui dépasse les temps de conduite autorisés ?",c:["Rien tant qu'il arrive à l'heure","Une infraction, amende voire immobilisation du véhicule","Une simple remarque orale","Aucun contrôle possible sur ce point"],a:1,e:"Le non-respect des temps de conduite/repos constitue une infraction à la réglementation sociale."},
+{q:"La carte de qualification conducteur (FIMO/FCO) est :",c:["Facultative pour le transport de voyageurs","Obligatoire pour exercer la profession de conducteur de transport en commun","Réservée aux poids lourds uniquement","Valable à vie sans renouvellement"],a:1,e:"Obtenue via la FIMO puis entretenue par la FCO, cette carte est obligatoire pour conduire professionnellement un véhicule de transport de voyageurs."}
+]},
+{title:"Le chronotachygraphe en détail",icon:"📟",questions:[
+{q:"Le chronotachygraphe numérique enregistre automatiquement :",c:["Uniquement la vitesse","Conduite, pauses, autres tâches et disponibilité","Le nombre de passagers montés","La météo"],a:1,e:"L'appareil distingue plusieurs activités (conduite, disponibilité, autres tâches, repos/pause)."},
+{q:"En l'absence de carte conducteur insérée, l'appareil enregistre :",c:["Rien, aucune donnée n'est conservée","Les données par défaut liées au véhicule","Sur le téléphone du conducteur","Sur une clé USB fournie par l'employeur"],a:1,e:"Sans carte insérée, l'appareil continue d'enregistrer les données liées au véhicule, contrôlables ensuite."},
+{q:"Que doit faire le conducteur en cas de panne du chronotachygraphe ?",c:["Continuer sans rien noter","Consigner manuellement ses temps et faire réparer l'appareil dans les délais","Attendre la fin de semaine pour le signaler","Rien, ce n'est pas grave"],a:1,e:"En cas de panne, le conducteur note manuellement ses activités et fait réparer l'appareil dans le délai légal."},
+{q:"La carte conducteur doit être retirée du lecteur :",c:["Jamais pendant le service","À la fin de la période de travail journalière","Uniquement en cas de contrôle","Toutes les heures"],a:1,e:"La carte reste insérée pendant toute l'activité et n'est retirée qu'en fin de journée de travail."},
+{q:"Un conducteur qui conduit plusieurs véhicules dans la journée doit :",c:["Utiliser une carte différente pour chaque véhicule","Utiliser sa même carte conducteur personnelle","Ne pas utiliser de carte","Demander une dérogation"],a:1,e:"La carte conducteur est personnelle et unique ; elle suit le conducteur d'un véhicule à l'autre."},
+{q:"Les données du chronotachygraphe doivent être téléchargées régulièrement pour :",c:["Supprimer l'historique","Être conservées et archivées conformément à la réglementation","Rien, ce n'est pas nécessaire","Uniquement en cas d'accident"],a:1,e:"Les données sont téléchargées périodiquement par l'entreprise et archivées pour répondre aux contrôles."},
+{q:"Falsifier ou manipuler le chronotachygraphe constitue :",c:["Une pratique tolérée si le trajet est urgent","Une infraction grave passible de sanctions","Une simple erreur administrative","Une pratique courante sans risque"],a:1,e:"La manipulation frauduleuse est une infraction grave, sévèrement sanctionnée."},
+{q:"Le symbole « repos » sur le chronotachygraphe correspond à :",c:["Une période de conduite","Une période de repos ou de pause","Une période de disponibilité","Une panne du véhicule"],a:1,e:"Ce symbole indique que le conducteur est en repos/pause, distinct de la conduite et de la disponibilité."}
+]},
+{title:"Priorités, distances de sécurité et dépassement",icon:"🛣️",questions:[
+{q:"La distance de sécurité entre véhicules lourds sur autoroute doit permettre :",c:["De s'arrêter en cas de freinage brusque du véhicule précédent","De doubler à tout moment","De klaxonner en cas de besoin","Il n'existe pas de règle spécifique"],a:0,e:"La distance de sécurité doit toujours permettre d'éviter une collision en cas de freinage soudain ; elle augmente avec la vitesse et la masse du véhicule."},
+{q:"Un espacement minimal entre véhicules lourds sur autoroute sert notamment à :",c:["Faciliter les insertions et réduire le risque de carambolage","Gagner du temps de trajet","Économiser du carburant uniquement","Respecter une règle esthétique"],a:0,e:"Un espacement suffisant facilite les insertions des autres usagers et limite le risque d'accident en chaîne."},
+{q:"Le dépassement d'un autre véhicule lourd par un autocar est :",c:["Toujours interdit","Autorisé si la manœuvre est sûre et non interdite par la signalisation","Autorisé uniquement de nuit","Autorisé uniquement sur route nationale"],a:1,e:"Le dépassement reste possible s'il est autorisé et réalisable en sécurité, en tenant compte du gabarit et de l'inertie du véhicule."},
+{q:"Face à un rond-point, un autocar de grande longueur doit :",c:["Toujours rester sur la voie extérieure sans anticipation","Anticiper sa trajectoire selon son gabarit, en sécurité","S'arrêter avant chaque giratoire","Ne jamais emprunter les giratoires"],a:1,e:"En raison de sa longueur et de son rayon de braquage, un autocar doit anticiper sa trajectoire pour négocier les giratoires en sécurité."},
+{q:"Aux abords d'un passage piéton, le conducteur d'autobus doit :",c:["Accélérer pour dégager rapidement","Ralentir et être prêt à céder le passage aux piétons","Klaxonner systématiquement","Ignorer les piétons qui n'ont pas encore traversé"],a:1,e:"La priorité aux piétons engagés ou sur le point de s'engager doit toujours être respectée, avec anticipation liée à la distance de freinage."},
+{q:"L'angle mort d'un autobus est particulièrement critique :",c:["Uniquement à l'arrière","À l'avant droit et sur les côtés, lors des manœuvres","Il n'existe pas sur les autobus modernes","Uniquement de nuit"],a:1,e:"Les angles morts avant droit et latéraux peuvent masquer piétons et cyclistes, notamment lors des tourne-à-droite."},
+{q:"En intersection, un autobus articulé doit adapter sa trajectoire pour :",c:["Éviter tout contact lors du pivot de la remorque","Rouler le plus près possible du trottoir dans tous les cas","Toujours prendre le virage le plus large sans considération","Accélérer pour raccourcir le virage"],a:0,e:"Le porte-à-faux et le pivot arrière d'un véhicule articulé imposent une trajectoire adaptée pour éviter tout heurt."},
+{q:"Sur route mouillée, la distance de freinage d'un autocar chargé est :",c:["Identique qu'à vide","Significativement augmentée","Réduite grâce au poids","Sans importance à vitesse modérée"],a:1,e:"La charge et l'adhérence réduite par la pluie augmentent nettement la distance de freinage nécessaire."}
+]},
+{title:"Transport scolaire et signalisation spécifique",icon:"🏫",questions:[
+{q:"Le panneau « Ramassage scolaire » doit être :",c:["Toujours visible, même hors transport scolaire","Visible uniquement pendant le transport d'élèves","Optionnel","Utilisé uniquement le matin"],a:1,e:"Ce panneau ne doit être visible que pendant les circuits effectifs de ramassage scolaire."},
+{q:"À un arrêt de transport scolaire, le conducteur doit :",c:["Klaxonner et repartir immédiatement","Activer les feux de détresse et sécuriser la traversée des enfants","Ne rien faire de particulier","Fermer les portes avant la descente complète"],a:1,e:"L'activation des feux de détresse signale l'arrêt aux autres usagers ; le conducteur veille à la sécurité de la traversée."},
+{q:"L'éthylotest anti-démarrage (EAD) est obligatoire dans les autocars affectés :",c:["À tous les transports sans exception","Au transport d'enfants (transport scolaire notamment)","Uniquement aux longs trajets internationaux","Il n'est jamais obligatoire"],a:1,e:"L'EAD est obligatoire dans les véhicules affectés au transport d'enfants pour empêcher le démarrage en cas d'alcoolémie détectée."},
+{q:"En cas de comportement perturbateur d'un enfant à bord, le conducteur doit avant tout :",c:["Intervenir physiquement en roulant","Assurer la sécurité de conduite, puis gérer la situation en sécurité (arrêt si besoin)","Ignorer la situation","Accélérer pour arriver plus vite"],a:1,e:"La priorité reste la sécurité de la conduite ; toute intervention se fait à l'arrêt, en sécurité."},
+{q:"Le nombre de places debout dans un autocar scolaire est généralement :",c:["Illimité","Très limité voire interdit selon la réglementation","Toujours égal au nombre de places assises","Fixé librement par le conducteur"],a:1,e:"Le transport scolaire impose des règles strictes sur les places debout, très limitées voire interdites."},
+{q:"En agglomération, la vitesse d'un autobus/autocar est limitée à :",c:["30 km/h toujours","50 km/h sauf signalisation différente","70 km/h","Aucune limite spécifique"],a:1,e:"En agglomération, la limite générale de 50 km/h s'applique, sauf signalisation spécifique (zone 30, etc.)."},
+{q:"Face à un bus scolaire à l'arrêt, feux de détresse activés, un véhicule qui le croise doit :",c:["Continuer sans ralentir","Ralentir et redoubler de prudence","Klaxonner pour le faire repartir","Doubler rapidement sans précaution"],a:1,e:"Les feux de détresse signalent une zone à risque (enfants traversant), imposant prudence accrue."},
+{q:"L'attestation de capacité professionnelle est nécessaire pour :",c:["Conduire un autocar en tant que particulier","Exploiter une entreprise de transport public de voyageurs","Elle n'est jamais nécessaire","Uniquement pour le transport international"],a:1,e:"Cette attestation atteste des compétences nécessaires à la gestion et l'exploitation d'une activité de transport public de voyageurs."}
+]},
+{title:"Sécurité des passagers et comportement en cas d'accident",icon:"🚨",questions:[
+{q:"En cas d'accident impliquant le bus, la priorité du conducteur est :",c:["Repartir immédiatement pour ne pas gêner la circulation","Protéger, alerter, secourir (PAS)","Attendre que les passagers gèrent la situation","Filmer la scène avant tout"],a:1,e:"Le principe Protéger-Alerter-Secourir s'applique : sécuriser les lieux, alerter les secours, puis porter assistance sans se mettre en danger."},
+{q:"Le triangle de présignalisation doit être positionné :",c:["À 1 mètre du véhicule","Environ 30 mètres en amont du danger","Directement sous le véhicule","Ce n'est pas obligatoire pour un autocar"],a:1,e:"Le triangle doit être placé assez loin (environ 30 m) pour avertir les autres usagers à temps."},
+{q:"L'évacuation d'urgence d'un autocar doit privilégier :",c:["La seule porte avant, quelle que soit la situation","Toutes les issues disponibles selon la situation","La fenêtre du conducteur uniquement","D'attendre les secours sans bouger, dans tous les cas"],a:1,e:"Selon la nature du danger, toutes les issues de secours disponibles doivent être utilisées pour évacuer rapidement."},
+{q:"Le marteau brise-vitre à bord sert à :",c:["Décorer l'habitacle","Briser une vitre en urgence si les issues normales sont inaccessibles","Réparer les vitres","Aucune utilité réelle"],a:1,e:"Cet outil permet de briser rapidement une vitre pour évacuer les passagers si les issues classiques sont bloquées."},
+{q:"En cas de début d'incendie dans le compartiment moteur, le conducteur doit avant tout :",c:["Ouvrir le capot pour évaluer le feu","Arrêter le véhicule, couper le moteur, faire évacuer loin, puis alerter","Continuer à rouler pour éteindre avec le vent","Utiliser l'extincteur avant d'arrêter le véhicule"],a:1,e:"La priorité est d'arrêter et faire évacuer immédiatement les passagers à distance de sécurité, puis d'alerter les secours."},
+{q:"Un passager qui refuse d'évacuer malgré la consigne d'urgence doit être :",c:["Laissé sur place sans insister","Incité fermement à évacuer, la sécurité collective primant","Ignoré totalement","Attaché à son siège"],a:1,e:"En situation d'urgence, la sécurité de tous prime ; le conducteur doit insister pour une évacuation rapide."},
+{q:"Après un accident, les informations à recueillir incluent :",c:["Uniquement le nom du conducteur en tort","Témoins, circonstances, dégâts, éventuels blessés","Rien, il faut attendre les secours","Uniquement l'heure de l'accident"],a:1,e:"Une collecte précise facilite le constat, le rapport à l'entreprise et l'éventuelle procédure d'assurance."},
+{q:"Le gilet de sécurité doit être porté par le conducteur :",c:["Uniquement de nuit","Dès qu'il descend à proximité de la chaussée","Jamais, il est optionnel","Uniquement sur autoroute"],a:1,e:"Le gilet haute visibilité doit être porté dès qu'il faut descendre à proximité de la circulation."}
+]},
+{title:"Premiers secours",icon:"🩹",questions:[
+{q:"Face à une victime consciente qui saigne abondamment, le premier geste est :",c:["La transporter soi-même à l'hôpital","Comprimer la plaie fermement avec un tissu propre ou la main","Lui donner à boire","Ne rien faire et attendre les secours"],a:1,e:"La compression directe de la plaie permet de limiter l'hémorragie en attendant les secours."},
+{q:"Face à une victime inconsciente qui respire normalement, il faut la placer :",c:["Sur le dos, jambes surélevées","En position latérale de sécurité (PLS)","Assise, tête penchée en arrière","Debout contre un support"],a:1,e:"La PLS permet de dégager les voies aériennes et d'éviter l'étouffement en cas de vomissement."},
+{q:"Le numéro d'urgence européen unique est le :",c:["15","17","18","112"],a:3,e:"Le 112 est le numéro d'urgence unique européen, accessible gratuitement dans toute l'UE, même depuis un téléphone verrouillé."},
+{q:"En France, le SAMU se joint au numéro :",c:["15","17","18","112 uniquement"],a:0,e:"Le 15 est le numéro du SAMU en France, dédié aux urgences médicales (17 = police, 18 = pompiers)."},
+{q:"Face à une victime qui s'étouffe et ne peut plus parler ni tousser, il faut réaliser :",c:["La manœuvre de Heimlich (tapes dans le dos puis compressions abdominales)","La faire boire immédiatement","La position latérale de sécurité","Rien, attendre les secours"],a:0,e:"L'obstruction complète des voies aériennes nécessite une action immédiate : claques dans le dos puis compressions abdominales si besoin."},
+{q:"En cas d'arrêt cardiaque suspecté, il faut :",c:["Attendre les secours sans intervenir","Débuter le massage cardiaque et utiliser un défibrillateur si disponible","Donner de l'eau à la victime","La mettre en PLS uniquement"],a:1,e:"Chaque minute compte : massage cardiaque immédiat et défibrillateur augmentent significativement les chances de survie."},
+{q:"En alertant les secours, il faut impérativement préciser :",c:["Rien, ils devinent la situation","Le lieu précis, la nature de l'événement, nombre et état des victimes","Uniquement son propre nom","Le numéro d'immatriculation du bus"],a:1,e:"Un message d'alerte clair (localisation, nature, victimes) permet une intervention rapide et adaptée."},
+{q:"La trousse de premiers secours à bord doit être :",c:["Cachée pour éviter le vol","Facilement accessible, contenu vérifié régulièrement","Optionnelle sur les trajets courts","Utilisée uniquement par un médecin"],a:1,e:"La trousse doit rester accessible en permanence et son contenu vérifié pour garantir son efficacité."}
+]},
+{title:"Équipements de sécurité obligatoires",icon:"🧯",questions:[
+{q:"Parmi les équipements obligatoires à bord d'un autocar figurent :",c:["Extincteur, triangle, gilet haute visibilité","Un parapluie et une trousse à outils","Rien n'est obligatoire","Uniquement une trousse de secours"],a:0,e:"Ces équipements de sécurité sont obligatoires pour faire face aux situations d'urgence."},
+{q:"Le nombre d'extincteurs obligatoires dépend :",c:["Toujours d'un seul quel que soit le véhicule","Du type et de la capacité du véhicule","Jamais requis pour le transport en commun","Du choix personnel du conducteur"],a:1,e:"La réglementation adapte le nombre et la capacité des extincteurs selon le type et la taille du véhicule."},
+{q:"Les marteaux brise-vitre doivent être positionnés :",c:["Dans le coffre à bagages uniquement","À proximité des issues de secours, accessibles et signalés","Dans la cabine du conducteur uniquement","Ils ne sont pas obligatoires"],a:1,e:"Placés près des issues de secours et signalés, ils doivent être accessibles rapidement en cas d'urgence."},
+{q:"La signalisation des issues de secours doit être :",c:["Facultative","Visible et conforme, y compris de nuit","Retirée si elle gêne la décoration","Réservée aux bus neufs"],a:1,e:"Une signalisation claire, y compris en faible luminosité, est indispensable pour une évacuation rapide."},
+{q:"La trousse de secours obligatoire doit contenir a minima :",c:["Rien de particulier n'est requis","Le matériel de premiers secours de base conforme à la réglementation","Des médicaments sur ordonnance","Un défibrillateur obligatoirement"],a:1,e:"La trousse doit contenir le matériel de base requis par la réglementation applicable aux véhicules de transport en commun."},
+{q:"Le contrôle périodique des équipements de sécurité relève :",c:["Uniquement du conducteur","De l'entreprise, avec un organisme habilité, en complément du contrôle visuel du conducteur","D'aucune obligation","D'un contrôle unique à l'achat"],a:1,e:"L'entreprise assure un contrôle périodique par un organisme habilité, en complément des vérifications quotidiennes du conducteur."},
+{q:"En cas d'équipement de sécurité manquant constaté avant départ, le conducteur doit :",c:["Partir quand même si le trajet est court","Signaler l'anomalie et ne pas prendre la route","Improviser une solution de fortune","Attendre le retour pour signaler"],a:1,e:"La sécurité des passagers impose de ne pas circuler avec un équipement de sécurité obligatoire manquant."},
+{q:"Le gilet haute visibilité présent à bord doit être :",c:["Rangé loin de portée","Facilement accessible depuis le poste de conduite","Porté en permanence même en conduite","Un accessoire facultatif"],a:1,e:"Le gilet doit être accessible rapidement pour être porté dès que le conducteur descend à proximité de la circulation."}
+]},
+{title:"Réglementation générale et responsabilités",icon:"📋",questions:[
+{q:"Pour conduire un autocar à titre professionnel, il faut être titulaire :",c:["Uniquement du permis D","Du permis D, de la carte de qualification (FIMO/FCO) et d'une visite médicale valide","D'aucun document particulier","Uniquement d'une attestation d'assurance"],a:1,e:"L'exercice professionnel nécessite le permis D, une carte de qualification à jour et une aptitude médicale certifiée."},
+{q:"La visite médicale d'aptitude à la conduite professionnelle doit être renouvelée :",c:["Jamais après l'obtention du permis","Périodiquement, selon une fréquence réglementaire","Uniquement en cas d'accident","Tous les 10 ans sans exception"],a:1,e:"La fréquence dépend notamment de l'âge du conducteur et de la catégorie du permis détenu."},
+{q:"Le conducteur qui constate une anomalie mécanique en cours de trajet doit :",c:["Continuer si le trajet est presque terminé","S'arrêter en sécurité et évaluer/signaler la situation","Ignorer l'anomalie si elle semble bénigne","Réparer lui-même sans compétence particulière"],a:1,e:"Toute anomalie mécanique doit être prise au sérieux : arrêt en sécurité puis évaluation/signalement."},
+{q:"La consommation d'alcool pour un conducteur professionnel de transport en commun est encadrée par :",c:["Le seuil grand public de 0,5 g/l uniquement","Un taux souvent plus strict (0,2 g/l) selon la réglementation applicable","Aucune réglementation spécifique","Uniquement pendant le service scolaire"],a:1,e:"Les conducteurs professionnels de transport en commun sont soumis à un taux d'alcoolémie plus strict que le grand public."},
+{q:"L'usage du téléphone tenu en main pendant la conduite est :",c:["Autorisé pour les urgences","Interdit, comme pour tout conducteur, encore plus risqué avec des passagers","Autorisé si le véhicule roule lentement","Toléré en agglomération"],a:1,e:"L'usage du téléphone tenu en main est interdit au volant ; le risque est accru avec la responsabilité de nombreux passagers."},
+{q:"En cas de contrôle routier, les documents à présenter incluent notamment :",c:["Uniquement la carte grise","Permis, carte de qualification, carte conducteur, documents du véhicule","Aucun document n'est requis","Uniquement l'attestation d'assurance"],a:1,e:"Le contrôle peut porter sur l'ensemble des documents du conducteur et du véhicule (carte grise, assurance, contrôle technique)."},
+{q:"La responsabilité du conducteur concernant la charge du véhicule est de :",c:["Aucune, cela relève uniquement de l'entreprise","Vérifier que le chargement respecte les limites autorisées","Charger le véhicule sans aucune limite","Cette vérification n'existe pas pour le transport de personnes"],a:1,e:"Le conducteur s'assure que le chargement reste dans les limites autorisées pour la sécurité du véhicule."},
+{q:"Face à une nouvelle réglementation de sécurité, le conducteur professionnel doit :",c:["L'ignorer si elle ne lui convient pas","Se tenir informé et l'appliquer, via la formation continue (FCO)","Attendre que quelqu'un d'autre l'applique","Ne rien changer à ses habitudes"],a:1,e:"La formation continue obligatoire (FCO) permet au conducteur de rester informé des évolutions réglementaires."}
+]},
+{title:"Signalisation et panneaux spécifiques",icon:"🚧",questions:[
+{q:"Un panneau de limitation de hauteur (ex : 3,5 m) signifie que :",c:["Les voitures ne peuvent pas passer","Tout véhicule dont la hauteur dépasse la valeur indiquée ne doit pas s'engager","Seuls les vélos peuvent passer","C'est une simple indication sans obligation"],a:1,e:"C'est une interdiction stricte pour tout véhicule dépassant la hauteur indiquée, sous peine de heurter l'obstacle (pont, tunnel, porche)."},
+{q:"Le panneau « Interdit aux véhicules de plus de X tonnes » concerne :",c:["Uniquement les camions","Tout véhicule dont le PTAC dépasse la valeur indiquée, y compris les autocars","Uniquement les autocars","Aucun véhicule de transport en commun"],a:1,e:"La restriction s'applique selon le Poids Total Autorisé en Charge (PTAC), quel que soit le type de véhicule concerné."},
+{q:"Sur autoroute, une aire aménagée signalée pour PL/autocars sert à :",c:["Rien de particulier","Offrir un lieu adapté pour respecter les pauses réglementaires","Signaler une zone de danger","Indiquer l'interdiction de s'arrêter"],a:1,e:"Ces aires permettent de prendre les pauses obligatoires (chronotachygraphe) en sécurité, hors circulation."},
+{q:"Le panneau « Voie réservée aux transports en commun » autorise :",c:["Tous les véhicules","Uniquement les bus, cars et véhicules autorisés par la signalisation locale","Uniquement les vélos","Uniquement la nuit"],a:1,e:"Cette voie est réservée aux transports en commun et, selon la signalisation locale, à d'autres véhicules autorisés (taxis, covoiturage...)."},
+{q:"Un panneau triangulaire de danger représentant un autocar annonce en général :",c:["Un parking autocar","Un danger lié à la présence ou au croisement d'autocars, par exemple une sortie d'école","Une station-service","Rien de spécifique"],a:1,e:"Ce panneau alerte sur un risque particulier lié aux mouvements d'autocars (ramassage scolaire, dépôt...)."},
+{q:"Le marquage au sol « BUS » dans une voie signifie :",c:["Voie réservée aux autobus/autocars et véhicules autorisés","Zone de stationnement libre","Sens interdit","Rien de particulier"],a:0,e:"Ce marquage identifie une voie réservée, à ne pas emprunter avec un véhicule non autorisé."},
+{q:"Le panneau d'interdiction de dépasser pour véhicules de plus de 3,5 t s'applique :",c:["Uniquement aux voitures","Aux poids lourds et autocars dont le PTAC dépasse 3,5 t","Uniquement aux motos","Il n'existe pas"],a:1,e:"Cette interdiction cible spécifiquement les véhicules lourds, dont le dépassement est plus long et plus risqué."},
+{q:"Un panneau lumineux annonçant une restriction de circulation PL/TC en conditions météo dégradées doit être :",c:["Ignoré si on est en retard","Respecté immédiatement, la sécurité prime","Contesté auprès du poste de contrôle","Appliqué uniquement de nuit"],a:1,e:"Ces restrictions dynamiques (neige, verglas, vent) visent à protéger tous les usagers et doivent être respectées sans délai."}
+]},
+{title:"Éco-conduite et environnement",icon:"🌱",questions:[
+{q:"L'éco-conduite permet notamment de :",c:["Rouler plus vite sans conséquence","Réduire la consommation de carburant et l'usure du véhicule","Éviter tout contrôle technique","Aucun effet réel"],a:1,e:"Anticipation, régularité de la vitesse et gestion douce du freinage réduisent la consommation et l'usure mécanique."},
+{q:"Une conduite anticipée (lever le pied tôt, anticiper freinages et arrêts) permet :",c:["D'économiser du carburant et d'améliorer le confort des passagers","N'a aucun effet","D'augmenter la consommation","Est interdite pour les autocars"],a:0,e:"Anticiper les ralentissements évite les freinages brusques, économise du carburant et rend le trajet plus confortable pour les passagers."},
+{q:"Le rapport de vitesse le mieux adapté pour l'éco-conduite est généralement :",c:["Toujours le rapport le plus bas","Le plus élevé possible compatible avec la vitesse et le régime moteur, sans forcer","Toujours le rapport le plus haut, même à l'arrêt","Aucune importance"],a:1,e:"Rouler au régime moteur le plus bas possible pour la vitesse visée, sans forcer le moteur, optimise la consommation."},
+{q:"Une pression de pneus incorrecte affecte :",c:["Uniquement le confort","La consommation de carburant et la tenue de route","Rien de significatif","Uniquement l'esthétique"],a:1,e:"Un sous-gonflage augmente la résistance au roulement (surconsommation) et dégrade la tenue de route et l'usure des pneus."},
+{q:"La climatisation et les équipements électriques à bord :",c:["N'ont aucun impact sur la consommation","Augmentent la consommation de carburant, à utiliser avec discernement","Réduisent toujours la consommation","Sont interdits sur autocar"],a:1,e:"Ces équipements sollicitent le moteur ou la batterie et augmentent la consommation ; un usage raisonné limite cet impact."},
+{q:"Laisser tourner le moteur à l'arrêt prolongé (ralenti excessif) est :",c:["Recommandé pour préserver le moteur","À éviter, car cela consomme du carburant et pollue inutilement","Obligatoire dans tous les cas","Sans aucun impact"],a:1,e:"Le ralenti prolongé consomme du carburant sans utilité et génère des émissions inutiles ; mieux vaut couper le moteur à l'arrêt prolongé."},
+{q:"Le respect des limitations de vitesse contribue aussi à :",c:["Rien de particulier","Réduire la consommation de carburant, les émissions et les risques d'accident","Uniquement ralentir le trajet","Aucun lien avec l'éco-conduite"],a:1,e:"Une vitesse maîtrisée réduit la consommation, les émissions polluantes et améliore la sécurité générale."},
+{q:"Un entretien régulier du véhicule (filtres, niveaux, pneus) contribue à :",c:["Aucune économie","Réduire la consommation et prolonger la durée de vie du véhicule","Uniquement à l'esthétique","Rien, seul le style de conduite compte"],a:1,e:"Un véhicule bien entretenu consomme moins et dure plus longtemps ; l'entretien complète le style de conduite dans la démarche éco-responsable."}
+]}
+];
+
+/* ============================= 12 FICHES ORALES (arrêté du 23 avril 2012) ============================= */
+const ORAL_FICHES = [
+{n:1, title:"Conditions atmosphériques difficiles & conduite de nuit", groups:[
+  {h:"Pluie", pts:["Réduire la vitesse, augmenter les distances de sécurité","Utiliser le frein moteur, éviter les freinages brusques","Feux allumés (sauf antibrouillard arrière sans besoin réel)"]},
+  {h:"Brouillard", pts:["Visibilité < 50 m → vitesse limitée à 50 km/h","Feux de croisement ou antibrouillard","Se guider avec le marquage au sol"]},
+  {h:"Vent", pts:["Réduire la vitesse, anticiper les écarts de trajectoire","Vigilance accrue aux passages ponts/zones dégagées, surtout à vide"]},
+  {h:"Neige et verglas", pts:["Équipements adaptés (chaînes, pneus neige)","Douceur sur toutes les commandes","Respecter les barrières de dégel"]},
+  {h:"Conduite de nuit", pts:["Accidents 2x plus graves la nuit (vitesse, fatigue, visibilité)","Contrôler l'éclairage avant le départ","Avoir ampoules de rechange, fusibles, lampe de poche"]}
+]},
+{n:2, title:"Comportement en cas d'accident", groups:[
+  {h:"Protéger", pts:["Signaler aux autres usagers (triangle, feux de détresse)","Éclairer la zone si possible de nuit"]},
+  {h:"Alerter", pts:["15 (SAMU), 17 (Police/Gendarmerie), 18 (Pompiers), 112 (urgence UE)","Préciser le lieu exact, la gravité apparente, le nombre de blessés"]},
+  {h:"Secourir", pts:["Rassurer, ne pas déplacer un blessé sauf danger immédiat","Ne jamais retirer un casque sauf urgence vitale (incendie, noyade)"]},
+  {h:"Conduite à tenir", pts:["Garder son calme quelle que soit la gravité","Dégager les lieux dès que possible vu l'encombrement du véhicule","Constat amiable : recto rempli avec l'autre partie avant séparation, verso rempli seul puis envoyé à l'assureur sous 5 jours ouvrés"]}
+]},
+{n:3, title:"Conduite en montagne ou zones accidentées", groups:[
+  {h:"Risques", pts:["Déclivité (vitesse qui s'emballe), croisements délicats, virages serrés","Échauffement des freins, surchauffe moteur en montée"]},
+  {h:"Précautions", pts:["Vitesse adaptée à la déclivité, rétrograder pour utiliser le frein moteur","Équipements antidérapants selon réglementation/prévisions","Se renseigner sur l'état des routes et l'ouverture des cols","Préférer un tunnel routier à un col si possible"]}
+]},
+{n:4, title:"Gestes et postures — accidents du travail", groups:[
+  {h:"Monter / descendre du véhicule", pts:["Toujours 3 points d'appui, ne jamais sauter","Descendre face aux marches, attention aux marchepieds glissants"]},
+  {h:"Chargement des bagages", pts:["Dos droit, jambes fléchies, pieds écartés pour l'équilibre"]},
+  {h:"Équipements de protection", pts:["Gants, chaussures de sécurité selon les situations"]},
+  {h:"À savoir", pts:["Les accidents du travail sont bien plus fréquents à l'arrêt qu'en circulation (manutentions, chutes de plain-pied, ouverture/fermeture des portes)"]}
+]},
+{n:5, title:"Chargement et surcharge (bagages / passagers)", groups:[
+  {h:"Responsabilité du conducteur", pts:["Respecter le PTAC/PTRA, équilibrer et répartir le chargement","Adapter vitesse et itinéraire au gabarit du véhicule"]},
+  {h:"Estimation des poids", pts:["≈ 70 kg par voyageur en campagne, ≈ 65 kg en ville, ≈ 40 kg par enfant"]},
+  {h:"Risques de surcharge", pts:["Déséquilibre, risque de renversement, dommages à la voirie, visibilité réduite"]},
+  {h:"Sanctions", pts:["Amende (jusqu'à 375 € en forfaitaire majorée)","Immobilisation au-delà de 5 % de surcharge, mise en fourrière après 48h si non régularisée"]}
+]},
+{n:6, title:"Le dépassement", groups:[
+  {h:"Réglementation", pts:["Dépassement interdit sur la 3e voie pour les véhicules > 3,5 t ou > 7 m","Interdit si au moins une voie est couverte de neige"]},
+  {h:"Avant de dépasser", pts:["Vérifier l'espace libre nécessaire et la différence d'allure","Connaître les capacités d'accélération du véhicule","Utiliser les avertisseurs sonores et lumineux"]},
+  {h:"Pendant / après", pts:["Respecter les distances latérales et longitudinales, surveiller les rétroviseurs","Distance de sécurité minimale de 50 m après dépassement entre véhicules > 3,5 t ou > 7 m (art. R.412-12)"]},
+  {h:"Dangers", pts:["Mauvaise appréciation des distances/vitesses par l'usager dépassé","Déport dû au vent en sortant d'une zone abritée"]}
+]},
+{n:7, title:"Dynamique du véhicule (vitesse, énergie, trajectoire)", groups:[
+  {h:"Énergie cinétique", pts:["Elle augmente avec le carré de la vitesse : doubler la vitesse quadruple l'énergie à dissiper au freinage"]},
+  {h:"Centre de gravité", pts:["Plus il est bas, plus le véhicule est stable","Un chargement en hauteur le rehausse et augmente le risque de renversement"]},
+  {h:"Force centrifuge", pts:["En virage, elle croît avec le carré de la vitesse et tend à élargir la trajectoire"]},
+  {h:"Adaptation", pts:["Sur route mouillée, la distance de freinage est multipliée par 2","Adapter systématiquement la vitesse au chargement et à la configuration de la route"]}
+]},
+{n:8, title:"Alcool, stupéfiants, médicaments", groups:[
+  {h:"Alcool", pts:["Chaque verre standard fait monter le taux d'environ 0,25 g/l de sang","Seuil abaissé à 0,2 g/l pour les conducteurs de transport de voyageurs (au lieu de 0,5 g/l)"]},
+  {h:"Sanctions", pts:["Dès 0,5 g/l : 6 points, amende, immobilisation possible","Dès 0,8 g/l : jusqu'à 4 500 €, suspension/annulation du permis, prison possible"]},
+  {h:"Stupéfiants", pts:["Le cannabis seul multiplie le risque d'accident par 1,8, par 14 combiné à une forte dose d'alcool","Sanctions comparables ou aggravées si couplé à l'alcool"]},
+  {h:"Médicaments", pts:["Toujours vérifier les pictogrammes/notices avant de prendre la route"]}
+]},
+{n:9, title:"Éco-conduite et conduite citoyenne", groups:[
+  {h:"Éco-conduite", pts:["Entretien régulier, changement de rapports dans la plage optimale","Anticipation du trafic, vitesse régulée, utiliser l'inertie du véhicule","Départs à froid : monter progressivement en température, éviter le ralenti prolongé"]},
+  {h:"Nuisances sonores", pts:["Échappement en bon état, éviter les accélérations inutiles en agglomération","Couper le moteur à l'arrêt prolongé"]},
+  {h:"Pollution", pts:["Respect des normes environnementales, pas de fumées opaques à l'arrêt"]}
+]},
+{n:10, title:"Porte-à-faux et angles morts", groups:[
+  {h:"Porte-à-faux", pts:["Distance entre l'axe d'une roue et l'extrémité du véhicule (avant ou arrière)","Risque de heurter piétons ou obstacles en virage/manœuvre","Regarder du côté opposé à la direction prise, s'appuyer sur les rétroviseurs"]},
+  {h:"Angles morts", pts:["Zones de non-visibilité arrière et latérales, très importantes sur un véhicule long","Critiques lors des dépassements, rabattements et changements de direction","En cas de doute : descendre vérifier ou se faire guider"]}
+]},
+{n:11, title:"Comportement en tunnels et passages à niveau", groups:[
+  {h:"Avant un tunnel", pts:["Vérifier l'ouverture et les éventuelles interdictions","S'assurer d'avoir assez de carburant pour le franchir"]},
+  {h:"Pendant la traversée", pts:["Ne pas fumer, écouter la radio locale pour les consignes","Respecter gabarit, vitesse et distances de sécurité"]},
+  {h:"En cas d'urgence/incendie", pts:["S'arrêter immédiatement, ne jamais faire demi-tour","Couper le moteur (clé laissée en place), feux de détresse, gilet haute visibilité","Évacuer vers l'abri signalé le plus proche, utiliser l'extincteur si possible"]},
+  {h:"Passages à niveau", pts:["3 types : sans barrière, manuelle, automatique (la plus répandue)","Ne jamais s'arrêter sur les voies","S'assurer d'avoir l'espace pour dégager entièrement le passage avant de s'engager"]}
+]},
+{n:12, title:"Systèmes de sécurité et aides à la conduite", groups:[
+  {h:"Aides à la sécurité", pts:["ABS : évite le blocage des roues au freinage, conserve la trajectoire","ESP : stabilise la trajectoire du véhicule","AFU : optimise la puissance de freinage en urgence","Limiteur/régulateur de vitesse, radar de distance"]},
+  {h:"Détection", pts:["Détecteurs de franchissement de ligne, de fatigue/inattention"]},
+  {h:"À retenir", pts:["Ces aides ne remplacent jamais la vigilance : le conducteur reste seul décideur","Une confiance excessive dans ces systèmes peut réduire l'anticipation"]}
+]}
+];
+
+/* ============================= GLOSSAIRE ============================= */
+const GLOSSAIRE = [
+  ["FIMO","Formation Initiale Minimale Obligatoire — formation initiale requise avant de conduire professionnellement."],
+  ["FCO","Formation Continue Obligatoire — recyclage périodique (tous les 5 ans) pour maintenir la carte de qualification."],
+  ["CQC","Carte de Qualification Conducteur — délivrée après la FIMO, atteste de l'aptitude professionnelle."],
+  ["PTAC","Poids Total Autorisé en Charge — poids maximal du véhicule chargé, fixé par le constructeur."],
+  ["PTRA","Poids Total Roulant Autorisé — PTAC du véhicule + poids maximal de la remorque éventuelle."],
+  ["EAD","Éthylotest Anti-Démarrage — dispositif empêchant le démarrage en cas d'alcoolémie détectée, obligatoire pour le transport d'enfants."],
+  ["PLS","Position Latérale de Sécurité — position de sécurité pour une victime inconsciente qui respire."],
+  ["PAS","Protéger, Alerter, Secourir — trame d'action face à un accident ou une urgence."],
+  ["SAMU","Service d'Aide Médicale Urgente — numéro 15 en France."],
+  ["PMR","Personne à Mobilité Réduite — usagers nécessitant une attention particulière à la montée/descente."],
+  ["Chronotachygraphe","Appareil enregistrant les temps de conduite, pause et repos du conducteur."],
+  ["Permis D","Catégorie de permis permettant de conduire un véhicule de transport en commun de plus de 8 places assises (hors conducteur)."]
+];
+
+const FICHES = {
+  ext:{title:"Vérifications extérieures",items:[
+    ["Carrosserie et plaques","Absence de dommages, plaques d'immatriculation propres et lisibles"],
+    ["Pneumatiques","Pression, usure, absence de coupures ou hernies sur les 2 essieux"],
+    ["Éclairage","Position, croisement, route, stop, clignotants, feux de détresse, girouette"],
+    ["Rétroviseurs","Propreté, réglage, absence de fissures"],
+    ["Portes passagers","Ouverture/fermeture, sécurité anti-pincement, commande de secours"],
+    ["Soutes à bagages","Fermeture correcte et verrouillage"],
+    ["Dessous du véhicule","Absence de fuite (huile, carburant, liquide de refroidissement)"],
+    ["Gabarit","Hauteur affichée en cabine, propreté du pare-brise et des vitres"],
+    ["Essuie-glaces","Fonctionnement et niveau de liquide lave-glace"],
+    ["Attelage (si articulé)","État et verrouillage de l'accouplement"]
+  ]},
+  int:{title:"Vérifications intérieures",items:[
+    ["Niveaux moteur","Huile, liquide de refroidissement, liquide de frein"],
+    ["Freins","Test du frein de service et du frein de parking avant démarrage"],
+    ["Tableau de bord","Absence de voyants d'alerte anormaux, jauge carburant"],
+    ["Chronotachygraphe","Insertion de la carte conducteur, bon fonctionnement"],
+    ["Sièges et ceintures","État, réglage, fonctionnement"],
+    ["Issues de secours","Accessibilité, signalisation, marteaux brise-vitre en place"],
+    ["Extincteur","Présence, date de validité, accessibilité"],
+    ["Trousse de secours","Présence, contenu complet, dates de péremption"],
+    ["Éclairage intérieur","Fonctionnement normal et éclairage de secours"],
+    ["Chauffage / ventilation","Fonctionnement correct"]
+  ]}
+};
+
+const REF_CARDS = [
+  {h:"Urgence — PAS",l:["Protéger la zone","Alerter les secours (112 / 15 / 17 / 18)","Secourir sans se mettre en danger"]},
+  {h:"Triangle & gilet",l:["Triangle posé ~30 m en amont","Gilet dès qu'on descend près de la chaussée"]},
+  {h:"Chrono — repères clés",l:["4h30 conduite max → pause 45 min (15+30)","9h conduite/jour (10h max 2×/sem.)","11h repos/jour (réductible à 9h, 3×/sem.)","45h repos/semaine (réductible à 24h)"]},
+  {h:"Documents à jour",l:["Permis D","Carte FIMO/FCO","Carte conducteur","Visite médicale"]}
+];
+
+/* ============================= STATE ============================= */
+let state = { tab:'home', seriesIdx:null, qIdx:0, answers:[], ficheTab:'oral', memoFilter:'' };
+let checklists = {ext:{}, int:{}};
+let memos = [];
+let history = [];
+let exam = null; // {pool, qIdx, answers, startTime, durationSec, timerId}
+const EXAM_SIZE = 20;
+const EXAM_DURATION = 20*60; // seconds
+const EXAM_PASS_PCT = 90;
+
+const $ = s=>document.querySelector(s);
+const view = $('#view');
+const nav = $('#nav');
+
+/* ============================= STORAGE (API serveur) ============================= */
+let currentUser = null;
+
+async function api(path, opts={}){
+  const res = await fetch(path, {
+    method: opts.method || 'GET',
+    headers: {'Content-Type':'application/json'},
+    credentials: 'include',
+    body: opts.body ? JSON.stringify(opts.body) : undefined
+  });
+  let data = null;
+  try{ data = await res.json(); }catch(e){}
+  return {ok: res.ok, status: res.status, data};
+}
+
+async function loadAll(){
+  const r = await api('/api/data');
+  if(r.ok && r.data){
+    checklists = r.data.checklists || {ext:{}, int:{}};
+    memos = r.data.memos || [];
+    history = r.data.results || [];
+  }
+}
+async function persist(){
+  await api('/api/data', {method:'POST', body:{checklists, memos, results:history}});
+}
+async function saveChecklists(){ await persist(); }
+async function saveMemos(){ await persist(); }
+async function saveHistory(){ await persist(); }
+
+async function checkSession(){
+  const r = await api('/api/me');
+  if(r.ok && r.data){ currentUser = r.data.username; return true; }
+  return false;
+}
+
+function toast(msg){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
+/* ============================= NAV ============================= */
+const TABS = [
+  {id:'home', icon:'🏠', label:'Accueil'},
+  {id:'series', icon:'📚', label:'Séries'},
+  {id:'fiches', icon:'🚌', label:'Fiches'},
+  {id:'exam', icon:'⏳', label:'Examen'},
+  {id:'memos', icon:'📝', label:'Mémos'},
+  {id:'results', icon:'📊', label:'Résultats'}
+];
+function renderNav(){
+  nav.innerHTML = TABS.map(t=>`
+    <button class="stop ${state.tab===t.id?'active':''}" data-tab="${t.id}">
+      <span class="dot">${t.icon}</span>
+      <span class="lbl">${t.label}</span>
+    </button>`).join('');
+  nav.querySelectorAll('.stop').forEach(b=>b.addEventListener('click', ()=>{
+    if(exam && exam._tid) clearInterval(exam._tid);
+    state.tab = b.dataset.tab; state.seriesIdx=null; render();
+  }));
+}
+
+/* ============================= HOME ============================= */
+function renderHome(){
+  const totalQ = SERIES.reduce((s,x)=>s+x.questions.length,0);
+  const avg = history.length ? Math.round(history.reduce((s,h)=>s+ (h.score/h.total*100),0)/history.length) : 0;
+  view.innerHTML = `
+  <div class="hero-illust">
+    <svg viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1A2029"/>
+          <stop offset="100%" stop-color="#0F131A"/>
+        </linearGradient>
+        <radialGradient id="sunG" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFC53D" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#FFC53D" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1000" height="200" fill="url(#skyg)"/>
+      <circle cx="845" cy="55" r="70" fill="url(#sunG)"/>
+      <circle cx="845" cy="55" r="26" fill="#FFC53D" opacity="0.85"/>
+      <path d="M0 150 Q 180 100 380 145 T 760 130 Q 880 120 1000 150 V200 H0 Z" fill="#161C25"/>
+      <path d="M0 168 Q 200 130 420 165 T 820 150 Q 910 145 1000 168 V200 H0 Z" fill="#20293A"/>
+      <path d="M0 176 H1000 V200 H0 Z" fill="#2C3646"/>
+      <path d="M0 176 Q 250 170 500 176 T 1000 176" stroke="#3A4658" stroke-width="2" fill="none"/>
+      <path d="M20 188 H 90 M140 188 H 210 M260 188 H 330 M620 188 H 690 M740 188 H 810 M860 188 H 930" stroke="#FFC53D" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+      <g transform="translate(390,132)">
+        <rect x="0" y="10" width="150" height="58" rx="12" fill="#FFC53D"/>
+        <rect x="0" y="10" width="150" height="30" rx="12" fill="#FFDA7A"/>
+        <rect x="14" y="18" width="26" height="20" rx="3" fill="#0F131A" opacity="0.85"/>
+        <rect x="46" y="18" width="26" height="20" rx="3" fill="#0F131A" opacity="0.85"/>
+        <rect x="78" y="18" width="26" height="20" rx="3" fill="#0F131A" opacity="0.85"/>
+        <rect x="110" y="18" width="22" height="20" rx="3" fill="#0F131A" opacity="0.85"/>
+        <rect x="0" y="44" width="150" height="6" fill="#2BB3A3"/>
+        <circle cx="32" cy="72" r="13" fill="#161C25"/>
+        <circle cx="32" cy="72" r="6" fill="#8D97A5"/>
+        <circle cx="118" cy="72" r="13" fill="#161C25"/>
+        <circle cx="118" cy="72" r="6" fill="#8D97A5"/>
+      </g>
+      <g fill="#8D97A5" opacity="0.8">
+        <rect x="70" y="120" width="4" height="45"/>
+        <rect x="58" y="112" width="28" height="18" rx="3" fill="#FF5A4E"/>
+      </g>
+    </svg>
+  </div>
+  <div class="panel hero">
+    <div>
+      <h2>Prêt pour ton <span style="color:var(--yellow)">permis bus</span> ?</h2>
+      <p style="color:var(--muted);font-size:14px;line-height:1.6;margin-top:8px;">
+        10 séries de code sur le transport en commun, les fiches véhicule complètes (vérifs extérieures & intérieures)
+        et un carnet de mémos perso. Tout se sauvegarde automatiquement, sur ce lien, où que tu ailles.
+      </p>
+      <div class="stats">
+        <div class="stat"><b>${SERIES.length}</b><span>Séries</span></div>
+        <div class="stat"><b>${totalQ}</b><span>Questions</span></div>
+        <div class="stat"><b>${history.length}</b><span>Tentatives</span></div>
+        <div class="stat"><b>${memos.length}</b><span>Mémos</span></div>
+      </div>
+    </div>
+    <div class="gauge-wrap">
+      <div class="gauge" style="--pct:${avg}"><div class="ring"></div><div class="center"><b>${avg}%</b><span>Moy. globale</span></div></div>
+      <span class="gauge-cap">Basée sur ${history.length} série(s) faite(s)</span>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Accès rapide</h2>
+    <div class="series-grid" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+      <div class="series-card" data-go="series"><div class="num">01</div><h3>🎫 Séries de code</h3><span class="meta" style="display:block">Commencer une série →</span></div>
+      <div class="series-card" data-go="exam"><div class="num">02</div><h3>⏳ Examen blanc</h3><span class="meta" style="display:block">${EXAM_SIZE} questions chrono →</span></div>
+      <div class="series-card" data-go="fiches"><div class="num">03</div><h3>🚏 Fiches véhicule</h3><span class="meta" style="display:block">Check-lists & glossaire →</span></div>
+      <div class="series-card" data-go="memos"><div class="num">04</div><h3>🗒️ Mes mémos</h3><span class="meta" style="display:block">Notes perso →</span></div>
+    </div>
+  </div>`;
+  view.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click', ()=>{state.tab=el.dataset.go; render();}));
+}
+
+/* ============================= SERIES LIST ============================= */
+function renderSeriesList(){
+  view.innerHTML = `
+  <div class="panel">
+    <h2>Séries de <span class="accent">code</span></h2>
+    <div class="series-grid" id="sgrid"></div>
+  </div>`;
+  const grid = $('#sgrid');
+  grid.innerHTML = SERIES.map((s,i)=>{
+    const best = history.filter(h=>h.seriesIdx===i).sort((a,b)=>b.score-a.score)[0];
+    const badge = best ? `<span class="badge-score done">${best.score}/${best.total}</span>` : `<span class="badge-score">à faire</span>`;
+    return `<div class="series-card" data-idx="${i}">
+      <div class="num">SÉRIE ${String(i+1).padStart(2,'0')}</div>
+      <h3>${s.icon} ${s.title}</h3>
+      <div class="meta"><span>${s.questions.length} questions</span>${badge}</div>
+    </div>`;
+  }).join('');
+  grid.querySelectorAll('.series-card').forEach(c=>c.addEventListener('click', ()=>{
+    state.seriesIdx = +c.dataset.idx; state.qIdx=0; state.answers=[]; state.tab='quiz'; render();
+  }));
+}
+
+/* ============================= QUIZ ============================= */
+function renderQuiz(){
+  const s = SERIES[state.seriesIdx];
+  if(state.qIdx >= s.questions.length){ renderQuizResult(s); return; }
+  const q = s.questions[state.qIdx];
+  const pct = Math.round((state.qIdx)/s.questions.length*100);
+  view.innerHTML = `
+  <div class="panel">
+    <button class="back-link" id="backBtn">← Retour aux séries</button>
+    <div class="qz-top">
+      <span class="qz-count">${s.icon} ${s.title}</span>
+      <div class="qz-progress"><i style="width:${pct}%"></i></div>
+      <span class="qz-count">${state.qIdx+1}/${s.questions.length}</span>
+    </div>
+    <div class="qcard">
+      <div class="qtext">${q.q}</div>
+      <div id="choices"></div>
+      <div class="explain" id="explain"></div>
+      <div class="qz-actions"><button class="btn" id="nextBtn" disabled>Suivant →</button></div>
+    </div>
+  </div>`;
+  $('#backBtn').addEventListener('click', ()=>{state.tab='series'; render();});
+  const cWrap = $('#choices');
+  q.c.forEach((choice,i)=>{
+    const b = document.createElement('button');
+    b.className='choice'; b.textContent = choice;
+    b.addEventListener('click', ()=>{
+      cWrap.querySelectorAll('.choice').forEach(x=>x.disabled=true);
+      const correct = i===q.a;
+      b.classList.add(correct?'correct':'wrong');
+      if(!correct) cWrap.children[q.a].classList.add('correct');
+      const ex = $('#explain');
+      ex.innerHTML = `<b>${correct?'✔ Exact.':'✘ Pas tout à fait.'}</b> ${q.e}`;
+      ex.classList.add('show');
+      state.answers[state.qIdx] = correct;
+      $('#nextBtn').disabled = false;
+    });
+    cWrap.appendChild(b);
+  });
+  $('#nextBtn').addEventListener('click', ()=>{ state.qIdx++; render(); });
+}
+
+async function renderQuizResult(s){
+  const total = s.questions.length;
+  const score = state.answers.filter(Boolean).length;
+  const pct = Math.round(score/total*100);
+  const color = pct>=80?'var(--green)':pct>=50?'var(--yellow)':'var(--red)';
+  const entry = {date:new Date().toISOString(), seriesIdx:state.seriesIdx, title:s.title, score, total};
+  history.push(entry); await saveHistory();
+  view.innerHTML = `
+  <div class="panel">
+    <div class="result-box">
+      <div class="gauge" style="--pct:${pct};margin:0 auto;"><div class="ring" style="background:conic-gradient(${color} calc(var(--pct,0)*1%), var(--line) 0)"></div><div class="center"><b>${pct}%</b><span>${score}/${total}</span></div></div>
+      <h3>${pct>=80?'Excellent, ligne directe ! 🚌':pct>=50?'Pas mal, encore un arrêt à faire.':'Retour au dépôt pour réviser.'}</h3>
+      <p style="color:var(--muted);font-size:13.5px;">${s.title}</p>
+      <div class="result-actions">
+        <button class="btn ghost" id="retryBtn">Refaire cette série</button>
+        <button class="btn" id="seriesBtn">Autres séries</button>
+      </div>
+    </div>
+  </div>`;
+  $('#retryBtn').addEventListener('click', ()=>{state.qIdx=0; state.answers=[]; render();});
+  $('#seriesBtn').addEventListener('click', ()=>{state.tab='series'; render();});
+}
+
+/* ============================= FICHES ============================= */
+function renderFiches(){
+  view.innerHTML = `
+  <div class="panel">
+    <h2>Fiches <span class="accent">véhicule</span></h2>
+    <div class="fiche-tabs">
+      <button class="fiche-tab ${state.ficheTab==='oral'?'active':''}" data-f="oral">🎤 Fiches orales (12)</button>
+      <button class="fiche-tab ${state.ficheTab==='ext'?'active':''}" data-f="ext">Extérieur</button>
+      <button class="fiche-tab ${state.ficheTab==='int'?'active':''}" data-f="int">Intérieur</button>
+      <button class="fiche-tab ${state.ficheTab==='ref'?'active':''}" data-f="ref">Repères rapides</button>
+      <button class="fiche-tab ${state.ficheTab==='gloss'?'active':''}" data-f="gloss">Glossaire</button>
+    </div>
+    <div id="ficheBody"></div>
+  </div>`;
+  view.querySelectorAll('.fiche-tab').forEach(b=>b.addEventListener('click', ()=>{state.ficheTab=b.dataset.f; render();}));
+  const body = $('#ficheBody');
+  if(state.ficheTab==='oral'){
+    renderOralFiches(body);
+    return;
+  }
+  if(state.ficheTab==='ref'){
+    body.innerHTML = `<div class="ref-grid">${REF_CARDS.map(c=>`
+      <div class="ref-card"><h4>${c.h}</h4><ul>${c.l.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')}</div>`;
+    return;
+  }
+  if(state.ficheTab==='gloss'){
+    body.innerHTML = `<ul class="checklist">${GLOSSAIRE.map(g=>`
+      <li><div class="txt"><b>${g[0]}</b><span>${g[1]}</span></div></li>`).join('')}</ul>`;
+    return;
+  }
+  const f = FICHES[state.ficheTab];
+  const checks = checklists[state.ficheTab];
+  body.innerHTML = `<ul class="checklist">${f.items.map((it,i)=>`
+    <li class="${checks[i]?'checked':''}">
+      <input type="checkbox" data-i="${i}" ${checks[i]?'checked':''}>
+      <div class="txt"><b>${it[0]}</b><span>${it[1]}</span></div>
+    </li>`).join('')}</ul>
+    <button class="reset-check" id="resetCheck">Réinitialiser la check-list</button>
+    <div class="fiche-note">💡 Fais ce tour du véhicule dans le même ordre à chaque prise de service : ça devient un réflexe le jour de l'examen.</div>`;
+  body.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.addEventListener('change', async ()=>{
+    checklists[state.ficheTab][cb.dataset.i] = cb.checked;
+    await saveChecklists();
+    cb.closest('li').classList.toggle('checked', cb.checked);
+  }));
+  $('#resetCheck').addEventListener('click', async ()=>{
+    checklists[state.ficheTab] = {}; await saveChecklists(); render();
+  });
+}
+
+/* ============================= MEMOS ============================= */
+function renderOralFiches(body){
+  body.innerHTML = `
+    <div class="fiche-note" style="margin-top:0;">
+      🎤 Le jour de l'examen, l'inspecteur te fait tirer au sort 1 fiche parmi ces 12 et échange avec toi
+      dessus. Barème : 3 = toutes les connaissances, 2 = 2/3, 1 = 1/3, moins d'1/3 = <b>éliminatoire</b>.
+      (Source : arrêté du 23 avril 2012.)
+    </div>
+    <div class="result-actions" style="justify-content:flex-start;margin:16px 0 22px;">
+      <button class="btn" id="drawFicheBtn">🎲 Tirer une fiche au sort</button>
+    </div>
+    <div id="drawnFiche"></div>
+    <h2 style="margin-top:28px;">Les 12 fiches, en détail</h2>
+    <div id="oralList"></div>`;
+  $('#drawFicheBtn').addEventListener('click', ()=>{
+    const f = ORAL_FICHES[Math.floor(Math.random()*ORAL_FICHES.length)];
+    $('#drawnFiche').innerHTML = oralFicheCardHTML(f, true);
+  });
+  $('#oralList').innerHTML = ORAL_FICHES.map(f=>oralFicheCardHTML(f, false)).join('');
+}
+function oralFicheCardHTML(f, drawn){
+  return `<div class="qcard" style="margin-bottom:14px;${drawn?'border-color:var(--yellow);':''}">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+      <span class="badge-score done" style="background:rgba(255,197,61,.15);color:var(--yellow);">FICHE N°${f.n}</span>
+      ${drawn ? '<span style="font-size:12px;color:var(--yellow);">Tirée au sort 🎲</span>' : ''}
+    </div>
+    <div class="qtext" style="font-size:17px;margin-bottom:14px;">${f.title}</div>
+    ${f.groups.map(g=>`
+      <div style="margin-bottom:12px;">
+        <b style="font-size:13.5px;color:var(--teal);display:block;margin-bottom:5px;">${g.h}</b>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;color:var(--muted);line-height:1.6;">
+          ${g.pts.map(p=>`<li>${p}</li>`).join('')}
+        </ul>
+      </div>`).join('')}
+  </div>`;
+}
+
+function renderMemos(){
+  view.innerHTML = `
+  <div class="panel">
+    <h2>Mes <span class="accent">mémos</span></h2>
+    <div class="memo-input">
+      <textarea id="memoTxt" placeholder="Note perso : astuce, point à revoir, question à poser à l'auto-école..."></textarea>
+      <button class="btn" id="addMemo" style="align-self:flex-start;">Ajouter</button>
+    </div>
+    ${memos.length>3 ? `<input id="memoSearch" placeholder="🔎 Rechercher dans mes mémos..." value="${escapeHtml(state.memoFilter)}" style="width:100%;background:var(--panel2);border:1.5px solid var(--line);border-radius:9px;color:var(--text);padding:10px 12px;font-family:'Inter';font-size:13.5px;margin-bottom:14px;">` : ''}
+    <div class="memo-list" id="memoList"></div>
+  </div>`;
+  const filtered = state.memoFilter ? memos.filter(m=>m.text.toLowerCase().includes(state.memoFilter.toLowerCase())) : memos;
+  const list = $('#memoList');
+  if(!filtered.length){ list.innerHTML = `<div class="empty">${memos.length ? 'Aucun mémo ne correspond à ta recherche.' : "Aucun mémo pour l'instant. Note tout ce que tu veux te rappeler avant l'examen."}</div>`; }
+  else {
+    list.innerHTML = filtered.slice().reverse().map(m=>{
+      const d = new Date(m.date);
+      return `<div class="memo" data-id="${m.id}">
+        <div><p>${escapeHtml(m.text)}</p><span class="date">${d.toLocaleDateString('fr-FR')} ${d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}</span></div>
+        <button data-del="${m.id}">✕</button>
+      </div>`;
+    }).join('');
+    list.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click', async ()=>{
+      memos = memos.filter(m=>m.id!==b.dataset.del); await saveMemos(); render();
+    }));
+  }
+  const searchEl = $('#memoSearch');
+  if(searchEl) searchEl.addEventListener('input', ()=>{ state.memoFilter = searchEl.value; render(); setTimeout(()=>{const s=$('#memoSearch'); if(s){s.focus(); s.selectionStart=s.selectionEnd=s.value.length;}},0); });
+  $('#addMemo').addEventListener('click', async ()=>{
+    const t = $('#memoTxt');
+    if(!t.value.trim()) return;
+    memos.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), text:t.value.trim(), date:new Date().toISOString()});
+    await saveMemos(); render();
+  });
+}
+function escapeHtml(s){ return s.replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* ============================= EXAM ============================= */
+function shuffle(arr){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function renderExamIntro(){
+  const totalQ = SERIES.reduce((s,x)=>s+x.questions.length,0);
+  view.innerHTML = `
+  <div class="panel">
+    <h2>Examen <span class="accent">blanc</span></h2>
+    <p style="color:var(--muted);font-size:14px;line-height:1.6;">
+      Simulation dans les conditions de l'épreuve : <b style="color:var(--text)">${EXAM_SIZE} questions</b> tirées au hasard
+      parmi les ${totalQ} de la banque, <b style="color:var(--text)">${EXAM_DURATION/60} minutes</b> chrono, aucune correction
+      pendant l'épreuve. Le score de réussite indicatif est fixé à <b style="color:var(--text)">${EXAM_PASS_PCT}%</b>.
+    </p>
+    <div class="fiche-note">⚠️ Simulation d'entraînement non officielle — le format exact et le barème réels dépendent de l'examen passé.</div>
+    <div class="result-actions" style="margin-top:18px;justify-content:flex-start;">
+      <button class="btn" id="startExam">Démarrer l'examen ⏱️</button>
+    </div>
+  </div>`;
+  $('#startExam').addEventListener('click', startExam);
+}
+
+function startExam(){
+  const pool = [];
+  SERIES.forEach((s,si)=> s.questions.forEach(q=> pool.push({...q, seriesTitle:s.title, seriesIdx:si})));
+  const picked = shuffle(pool).slice(0, EXAM_SIZE);
+  exam = { pool:picked, qIdx:0, answers:new Array(picked.length).fill(null), endAt: Date.now()+EXAM_DURATION*1000 };
+  renderExamQuestion();
+}
+
+function renderExamQuestion(){
+  if(exam.qIdx >= exam.pool.length){ finishExam(); return; }
+  const q = exam.pool[exam.qIdx];
+  const pct = Math.round(exam.qIdx/exam.pool.length*100);
+  view.innerHTML = `
+  <div class="panel">
+    <div class="qz-top">
+      <span class="qz-count" id="examTimer">--:--</span>
+      <div class="qz-progress"><i style="width:${pct}%"></i></div>
+      <span class="qz-count">${exam.qIdx+1}/${exam.pool.length}</span>
+    </div>
+    <div class="qcard">
+      <div class="qtext">${q.q}</div>
+      <div id="choices"></div>
+      <div class="qz-actions"><button class="btn" id="nextBtn" disabled>${exam.qIdx===exam.pool.length-1?"Terminer l'examen":'Suivant →'}</button></div>
+    </div>
+  </div>`;
+  const cWrap = $('#choices');
+  q.c.forEach((choice,i)=>{
+    const b = document.createElement('button');
+    b.className='choice'; b.textContent = choice;
+    b.addEventListener('click', ()=>{
+      cWrap.querySelectorAll('.choice').forEach(x=>x.classList.remove('correct'));
+      cWrap.querySelectorAll('.choice').forEach(x=>x.style.borderColor='');
+      b.style.borderColor = 'var(--teal)';
+      exam.answers[exam.qIdx] = i;
+      $('#nextBtn').disabled = false;
+    });
+    cWrap.appendChild(b);
+  });
+  $('#nextBtn').addEventListener('click', ()=>{ exam.qIdx++; renderExamQuestion(); });
+  tickExamTimer();
+}
+
+function tickExamTimer(){
+  if(exam._tid) clearInterval(exam._tid);
+  const el = ()=>document.getElementById('examTimer');
+  const upd = ()=>{
+    const remain = Math.max(0, Math.round((exam.endAt-Date.now())/1000));
+    const m = String(Math.floor(remain/60)).padStart(2,'0');
+    const s = String(remain%60).padStart(2,'0');
+    const t = el(); if(t) t.textContent = `⏱ ${m}:${s}`;
+    if(remain<=0){ clearInterval(exam._tid); finishExam(); }
+  };
+  upd();
+  exam._tid = setInterval(upd, 1000);
+}
+
+async function finishExam(){
+  if(exam._tid) clearInterval(exam._tid);
+  const total = exam.pool.length;
+  let score = 0;
+  exam.pool.forEach((q,i)=>{ if(exam.answers[i]===q.a) score++; });
+  const pct = Math.round(score/total*100);
+  const passed = pct>=EXAM_PASS_PCT;
+  history.push({date:new Date().toISOString(), seriesIdx:null, title:'Examen blanc', score, total, type:'exam'});
+  await saveHistory();
+  const color = passed?'var(--green)':(pct>=60?'var(--yellow)':'var(--red)');
+  view.innerHTML = `
+  <div class="panel">
+    <div class="result-box">
+      <div class="gauge" style="--pct:${pct};margin:0 auto;"><div class="ring" style="background:conic-gradient(${color} calc(var(--pct,0)*1%), var(--line) 0)"></div><div class="center"><b>${pct}%</b><span>${score}/${total}</span></div></div>
+      <h3>${passed?'Admis, terminus atteint ! 🎉':'Pas encore admis — direction révisions.'}</h3>
+      <p style="color:var(--muted);font-size:13.5px;">Seuil indicatif de réussite : ${EXAM_PASS_PCT}%</p>
+      <div class="result-actions">
+        <button class="btn ghost" id="reviewBtn">Voir la correction détaillée</button>
+        <button class="btn" id="retryExam">Refaire un examen</button>
+      </div>
+    </div>
+    <div id="reviewBody" style="margin-top:18px;display:none;"></div>
+  </div>`;
+  $('#retryExam').addEventListener('click', startExam);
+  $('#reviewBtn').addEventListener('click', (e)=>{
+    const rb = $('#reviewBody');
+    if(rb.style.display==='none'){
+      rb.style.display='block';
+      rb.innerHTML = exam.pool.map((q,i)=>{
+        const given = exam.answers[i];
+        const ok = given===q.a;
+        return `<div class="qcard" style="margin-bottom:10px;">
+          <div class="qtext" style="font-size:15.5px;">${i+1}. ${q.q}</div>
+          ${q.c.map((c,ci)=>`<div class="choice" style="cursor:default;${ci===q.a?'border-color:var(--green);background:rgba(62,207,142,.12);':(ci===given&&!ok?'border-color:var(--red);background:rgba(255,90,78,.12);':'')}">${c}</div>`).join('')}
+          <div class="explain show"><b>${ok?'✔ Correct.':'✘ Erreur.'}</b> ${q.e}</div>
+        </div>`;
+      }).join('');
+      e.target.textContent = 'Masquer la correction';
+    } else { rb.style.display='none'; e.target.textContent='Voir la correction détaillée'; }
+  });
+}
+
+/* ============================= RESULTS ============================= */
+function renderResults(){
+  const avg = history.length ? Math.round(history.reduce((s,h)=>s+(h.score/h.total*100),0)/history.length) : 0;
+  const bySeries = SERIES.map((s,i)=>{
+    const attempts = history.filter(h=>h.seriesIdx===i);
+    if(!attempts.length) return null;
+    const p = Math.round(attempts.reduce((sum,h)=>sum+(h.score/h.total*100),0)/attempts.length);
+    return {title:s.title, icon:s.icon, pct:p};
+  }).filter(Boolean).sort((a,b)=>a.pct-b.pct);
+  view.innerHTML = `
+  <div class="panel">
+    <h2>Historique des <span class="accent">résultats</span></h2>
+    ${history.length ? `<div id="histList"></div>` : `<div class="empty">Aucune série complétée pour l'instant. Va faire un tour dans les séries de code !</div>`}
+    <div class="mail-box">
+      <input id="mailAddr" type="email" value="dylan.novo84@gmail.com">
+      <button class="btn teal" id="sendMail">✉️ Envoyer le récap par mail</button>
+    </div>
+    <p style="color:var(--muted);font-size:12px;margin-top:10px;">Ouvre ton client mail avec le récapitulatif pré-rempli — tu n'as plus qu'à cliquer sur envoyer.</p>
+  </div>
+  ${bySeries.length ? `<div class="panel">
+    <h2>Points à <span class="accent">travailler</span></h2>
+    <p style="color:var(--muted);font-size:13px;margin-top:-6px;margin-bottom:14px;">Moyenne par thème, du plus faible au plus solide.</p>
+    ${bySeries.map(b=>{
+      const color = b.pct>=80?'var(--green)':b.pct>=50?'var(--yellow)':'var(--red)';
+      return `<div style="margin-bottom:12px;">
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px;">
+          <span>${b.icon} ${b.title}</span><span style="font-family:'JetBrains Mono',monospace;color:${color};">${b.pct}%</span>
+        </div>
+        <div class="qz-progress" style="margin:0;"><i style="width:${b.pct}%;background:${color};"></i></div>
+      </div>`;
+    }).join('')}
+  </div>` : ''}`;
+  if(history.length){
+    $('#histList').innerHTML = history.slice().reverse().map(h=>{
+      const pct = Math.round(h.score/h.total*100);
+      const cls = pct>=80?'good':pct>=50?'mid':'low';
+      const d = new Date(h.date);
+      return `<div class="hist-row">
+        <div class="left"><b>${h.title}</b><span>${d.toLocaleDateString('fr-FR')} — ${d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}</span></div>
+        <div class="hist-score ${cls}">${h.score}/${h.total} · ${pct}%</div>
+      </div>`;
+    }).join('');
+  }
+  $('#sendMail').addEventListener('click', ()=>{
+    const addr = $('#mailAddr').value.trim() || 'dylan.novo84@gmail.com';
+    const subject = `Récap révision Permis Bus — ${new Date().toLocaleDateString('fr-FR')}`;
+    let body = `Récapitulatif de mes révisions Permis Bus (Ligne D)\n`;
+    body += `Moyenne globale : ${avg}% sur ${history.length} série(s)\n\n`;
+    history.slice().reverse().forEach(h=>{
+      const pct = Math.round(h.score/h.total*100);
+      body += `- ${h.title} : ${h.score}/${h.total} (${pct}%) le ${new Date(h.date).toLocaleDateString('fr-FR')}\n`;
+    });
+    if(memos.length){
+      body += `\nMémos :\n`;
+      memos.forEach(m=> body += `- ${m.text}\n`);
+    }
+    const url = `mailto:${encodeURIComponent(addr)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(url, '_blank');
+    toast('Ton client mail va s\'ouvrir avec le récap prêt à envoyer 📩');
+  });
+}
+
+/* ============================= ROUTER ============================= */
+function render(){
+  renderNav();
+  renderUserBadge();
+  if(state.tab==='home') renderHome();
+  else if(state.tab==='series') renderSeriesList();
+  else if(state.tab==='quiz') renderQuiz();
+  else if(state.tab==='fiches') renderFiches();
+  else if(state.tab==='exam') renderExamIntro();
+  else if(state.tab==='memos') renderMemos();
+  else if(state.tab==='results') renderResults();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function renderUserBadge(){
+  const b = $('#userBadge');
+  if(!b) return;
+  if(currentUser){
+    b.innerHTML = `<b>@${escapeHtml(currentUser)}</b><button id="logoutBtn">Déconnexion</button>`;
+    $('#logoutBtn').addEventListener('click', logout);
+  } else b.innerHTML='';
+}
+
+/* ============================= AUTH SCREENS ============================= */
+function renderAuthScreen(mode){
+  mode = mode || 'login';
+  document.body.classList.add('auth-mode');
+  view.innerHTML = `
+  <div class="panel auth-panel">
+    <h2>${mode==='login' ? 'Connexion' : 'Créer un compte'}</h2>
+    <p style="color:var(--muted);font-size:13.5px;margin-top:-6px;">
+      ${mode==='login' ? 'Retrouve tes séries, tes résultats et tes mémos.' : 'Tes données seront sauvegardées sur le serveur, liées à ce compte.'}
+    </p>
+    <div id="authError" class="auth-error" style="display:none;"></div>
+    <form id="authForm" class="auth-form">
+      <label>Nom d'utilisateur
+        <input type="text" id="authUser" autocomplete="username" required minlength="3" maxlength="40">
+      </label>
+      <label>Mot de passe
+        <input type="password" id="authPass" autocomplete="${mode==='login'?'current-password':'new-password'}" required minlength="6">
+      </label>
+      <button type="submit" class="btn" style="width:100%;margin-top:6px;">${mode==='login'?'Se connecter':"S'inscrire"}</button>
+    </form>
+    <p class="auth-switch">
+      ${mode==='login' ? "Pas encore de compte ? " : "Déjà un compte ? "}
+      <a href="#" id="authSwitch">${mode==='login' ? "S'inscrire" : "Se connecter"}</a>
+    </p>
+  </div>`;
+  $('#authSwitch').addEventListener('click', (e)=>{ e.preventDefault(); renderAuthScreen(mode==='login'?'register':'login'); });
+  $('#authForm').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const username = $('#authUser').value.trim();
+    const password = $('#authPass').value;
+    const errBox = $('#authError');
+    errBox.style.display='none';
+    const r = await api(mode==='login' ? '/api/login' : '/api/register', {method:'POST', body:{username, password}});
+    if(r.ok && r.data && r.data.username){
+      currentUser = r.data.username;
+      document.body.classList.remove('auth-mode');
+      await loadAll();
+      render();
+    } else {
+      errBox.textContent = (r.data && r.data.error) || 'Une erreur est survenue.';
+      errBox.style.display='block';
+    }
+  });
+}
+
+async function logout(){
+  await api('/api/logout', {method:'POST'});
+  currentUser = null;
+  checklists = {ext:{}, int:{}}; memos = []; history = [];
+  renderAuthScreen('login');
+}
+
+/* ============================= INIT ============================= */
+(async function init(){
+  view.innerHTML = `<div class="empty">Chargement de la ligne...</div>`;
+  const authed = await checkSession();
+  if(!authed){ renderAuthScreen('login'); return; }
+  await loadAll();
+  render();
+})();
+</script>
+</body>
+</html>
