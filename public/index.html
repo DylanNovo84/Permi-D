@@ -367,6 +367,77 @@ const SERIES = [
 ]}
 ];
 
+/* ============================= 12 FICHES ORALES (arrêté du 23 avril 2012) ============================= */
+const ORAL_FICHES = [
+{n:1, title:"Conditions atmosphériques difficiles & conduite de nuit", groups:[
+  {h:"Pluie", pts:["Réduire la vitesse, augmenter les distances de sécurité","Utiliser le frein moteur, éviter les freinages brusques","Feux allumés (sauf antibrouillard arrière sans besoin réel)"]},
+  {h:"Brouillard", pts:["Visibilité < 50 m → vitesse limitée à 50 km/h","Feux de croisement ou antibrouillard","Se guider avec le marquage au sol"]},
+  {h:"Vent", pts:["Réduire la vitesse, anticiper les écarts de trajectoire","Vigilance accrue aux passages ponts/zones dégagées, surtout à vide"]},
+  {h:"Neige et verglas", pts:["Équipements adaptés (chaînes, pneus neige)","Douceur sur toutes les commandes","Respecter les barrières de dégel"]},
+  {h:"Conduite de nuit", pts:["Accidents 2x plus graves la nuit (vitesse, fatigue, visibilité)","Contrôler l'éclairage avant le départ","Avoir ampoules de rechange, fusibles, lampe de poche"]}
+]},
+{n:2, title:"Comportement en cas d'accident", groups:[
+  {h:"Protéger", pts:["Signaler aux autres usagers (triangle, feux de détresse)","Éclairer la zone si possible de nuit"]},
+  {h:"Alerter", pts:["15 (SAMU), 17 (Police/Gendarmerie), 18 (Pompiers), 112 (urgence UE)","Préciser le lieu exact, la gravité apparente, le nombre de blessés"]},
+  {h:"Secourir", pts:["Rassurer, ne pas déplacer un blessé sauf danger immédiat","Ne jamais retirer un casque sauf urgence vitale (incendie, noyade)"]},
+  {h:"Conduite à tenir", pts:["Garder son calme quelle que soit la gravité","Dégager les lieux dès que possible vu l'encombrement du véhicule","Constat amiable : recto rempli avec l'autre partie avant séparation, verso rempli seul puis envoyé à l'assureur sous 5 jours ouvrés"]}
+]},
+{n:3, title:"Conduite en montagne ou zones accidentées", groups:[
+  {h:"Risques", pts:["Déclivité (vitesse qui s'emballe), croisements délicats, virages serrés","Échauffement des freins, surchauffe moteur en montée"]},
+  {h:"Précautions", pts:["Vitesse adaptée à la déclivité, rétrograder pour utiliser le frein moteur","Équipements antidérapants selon réglementation/prévisions","Se renseigner sur l'état des routes et l'ouverture des cols","Préférer un tunnel routier à un col si possible"]}
+]},
+{n:4, title:"Gestes et postures — accidents du travail", groups:[
+  {h:"Monter / descendre du véhicule", pts:["Toujours 3 points d'appui, ne jamais sauter","Descendre face aux marches, attention aux marchepieds glissants"]},
+  {h:"Chargement des bagages", pts:["Dos droit, jambes fléchies, pieds écartés pour l'équilibre"]},
+  {h:"Équipements de protection", pts:["Gants, chaussures de sécurité selon les situations"]},
+  {h:"À savoir", pts:["Les accidents du travail sont bien plus fréquents à l'arrêt qu'en circulation (manutentions, chutes de plain-pied, ouverture/fermeture des portes)"]}
+]},
+{n:5, title:"Chargement et surcharge (bagages / passagers)", groups:[
+  {h:"Responsabilité du conducteur", pts:["Respecter le PTAC/PTRA, équilibrer et répartir le chargement","Adapter vitesse et itinéraire au gabarit du véhicule"]},
+  {h:"Estimation des poids", pts:["≈ 70 kg par voyageur en campagne, ≈ 65 kg en ville, ≈ 40 kg par enfant"]},
+  {h:"Risques de surcharge", pts:["Déséquilibre, risque de renversement, dommages à la voirie, visibilité réduite"]},
+  {h:"Sanctions", pts:["Amende (jusqu'à 375 € en forfaitaire majorée)","Immobilisation au-delà de 5 % de surcharge, mise en fourrière après 48h si non régularisée"]}
+]},
+{n:6, title:"Le dépassement", groups:[
+  {h:"Réglementation", pts:["Dépassement interdit sur la 3e voie pour les véhicules > 3,5 t ou > 7 m","Interdit si au moins une voie est couverte de neige"]},
+  {h:"Avant de dépasser", pts:["Vérifier l'espace libre nécessaire et la différence d'allure","Connaître les capacités d'accélération du véhicule","Utiliser les avertisseurs sonores et lumineux"]},
+  {h:"Pendant / après", pts:["Respecter les distances latérales et longitudinales, surveiller les rétroviseurs","Distance de sécurité minimale de 50 m après dépassement entre véhicules > 3,5 t ou > 7 m (art. R.412-12)"]},
+  {h:"Dangers", pts:["Mauvaise appréciation des distances/vitesses par l'usager dépassé","Déport dû au vent en sortant d'une zone abritée"]}
+]},
+{n:7, title:"Dynamique du véhicule (vitesse, énergie, trajectoire)", groups:[
+  {h:"Énergie cinétique", pts:["Elle augmente avec le carré de la vitesse : doubler la vitesse quadruple l'énergie à dissiper au freinage"]},
+  {h:"Centre de gravité", pts:["Plus il est bas, plus le véhicule est stable","Un chargement en hauteur le rehausse et augmente le risque de renversement"]},
+  {h:"Force centrifuge", pts:["En virage, elle croît avec le carré de la vitesse et tend à élargir la trajectoire"]},
+  {h:"Adaptation", pts:["Sur route mouillée, la distance de freinage est multipliée par 2","Adapter systématiquement la vitesse au chargement et à la configuration de la route"]}
+]},
+{n:8, title:"Alcool, stupéfiants, médicaments", groups:[
+  {h:"Alcool", pts:["Chaque verre standard fait monter le taux d'environ 0,25 g/l de sang","Seuil abaissé à 0,2 g/l pour les conducteurs de transport de voyageurs (au lieu de 0,5 g/l)"]},
+  {h:"Sanctions", pts:["Dès 0,5 g/l : 6 points, amende, immobilisation possible","Dès 0,8 g/l : jusqu'à 4 500 €, suspension/annulation du permis, prison possible"]},
+  {h:"Stupéfiants", pts:["Le cannabis seul multiplie le risque d'accident par 1,8, par 14 combiné à une forte dose d'alcool","Sanctions comparables ou aggravées si couplé à l'alcool"]},
+  {h:"Médicaments", pts:["Toujours vérifier les pictogrammes/notices avant de prendre la route"]}
+]},
+{n:9, title:"Éco-conduite et conduite citoyenne", groups:[
+  {h:"Éco-conduite", pts:["Entretien régulier, changement de rapports dans la plage optimale","Anticipation du trafic, vitesse régulée, utiliser l'inertie du véhicule","Départs à froid : monter progressivement en température, éviter le ralenti prolongé"]},
+  {h:"Nuisances sonores", pts:["Échappement en bon état, éviter les accélérations inutiles en agglomération","Couper le moteur à l'arrêt prolongé"]},
+  {h:"Pollution", pts:["Respect des normes environnementales, pas de fumées opaques à l'arrêt"]}
+]},
+{n:10, title:"Porte-à-faux et angles morts", groups:[
+  {h:"Porte-à-faux", pts:["Distance entre l'axe d'une roue et l'extrémité du véhicule (avant ou arrière)","Risque de heurter piétons ou obstacles en virage/manœuvre","Regarder du côté opposé à la direction prise, s'appuyer sur les rétroviseurs"]},
+  {h:"Angles morts", pts:["Zones de non-visibilité arrière et latérales, très importantes sur un véhicule long","Critiques lors des dépassements, rabattements et changements de direction","En cas de doute : descendre vérifier ou se faire guider"]}
+]},
+{n:11, title:"Comportement en tunnels et passages à niveau", groups:[
+  {h:"Avant un tunnel", pts:["Vérifier l'ouverture et les éventuelles interdictions","S'assurer d'avoir assez de carburant pour le franchir"]},
+  {h:"Pendant la traversée", pts:["Ne pas fumer, écouter la radio locale pour les consignes","Respecter gabarit, vitesse et distances de sécurité"]},
+  {h:"En cas d'urgence/incendie", pts:["S'arrêter immédiatement, ne jamais faire demi-tour","Couper le moteur (clé laissée en place), feux de détresse, gilet haute visibilité","Évacuer vers l'abri signalé le plus proche, utiliser l'extincteur si possible"]},
+  {h:"Passages à niveau", pts:["3 types : sans barrière, manuelle, automatique (la plus répandue)","Ne jamais s'arrêter sur les voies","S'assurer d'avoir l'espace pour dégager entièrement le passage avant de s'engager"]}
+]},
+{n:12, title:"Systèmes de sécurité et aides à la conduite", groups:[
+  {h:"Aides à la sécurité", pts:["ABS : évite le blocage des roues au freinage, conserve la trajectoire","ESP : stabilise la trajectoire du véhicule","AFU : optimise la puissance de freinage en urgence","Limiteur/régulateur de vitesse, radar de distance"]},
+  {h:"Détection", pts:["Détecteurs de franchissement de ligne, de fatigue/inattention"]},
+  {h:"À retenir", pts:["Ces aides ne remplacent jamais la vigilance : le conducteur reste seul décideur","Une confiance excessive dans ces systèmes peut réduire l'anticipation"]}
+]}
+];
+
 /* ============================= GLOSSAIRE ============================= */
 const GLOSSAIRE = [
   ["FIMO","Formation Initiale Minimale Obligatoire — formation initiale requise avant de conduire professionnellement."],
@@ -418,7 +489,7 @@ const REF_CARDS = [
 ];
 
 /* ============================= STATE ============================= */
-let state = { tab:'home', seriesIdx:null, qIdx:0, answers:[], ficheTab:'ext', memoFilter:'' };
+let state = { tab:'home', seriesIdx:null, qIdx:0, answers:[], ficheTab:'oral', memoFilter:'' };
 let checklists = {ext:{}, int:{}};
 let memos = [];
 let history = [];
@@ -622,6 +693,7 @@ function renderFiches(){
   <div class="panel">
     <h2>Fiches <span class="accent">véhicule</span></h2>
     <div class="fiche-tabs">
+      <button class="fiche-tab ${state.ficheTab==='oral'?'active':''}" data-f="oral">🎤 Fiches orales (12)</button>
       <button class="fiche-tab ${state.ficheTab==='ext'?'active':''}" data-f="ext">Extérieur</button>
       <button class="fiche-tab ${state.ficheTab==='int'?'active':''}" data-f="int">Intérieur</button>
       <button class="fiche-tab ${state.ficheTab==='ref'?'active':''}" data-f="ref">Repères rapides</button>
@@ -631,6 +703,10 @@ function renderFiches(){
   </div>`;
   view.querySelectorAll('.fiche-tab').forEach(b=>b.addEventListener('click', ()=>{state.ficheTab=b.dataset.f; render();}));
   const body = $('#ficheBody');
+  if(state.ficheTab==='oral'){
+    renderOralFiches(body);
+    return;
+  }
   if(state.ficheTab==='ref'){
     body.innerHTML = `<div class="ref-grid">${REF_CARDS.map(c=>`
       <div class="ref-card"><h4>${c.h}</h4><ul>${c.l.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')}</div>`;
@@ -661,6 +737,42 @@ function renderFiches(){
 }
 
 /* ============================= MEMOS ============================= */
+function renderOralFiches(body){
+  body.innerHTML = `
+    <div class="fiche-note" style="margin-top:0;">
+      🎤 Le jour de l'examen, l'inspecteur te fait tirer au sort 1 fiche parmi ces 12 et échange avec toi
+      dessus. Barème : 3 = toutes les connaissances, 2 = 2/3, 1 = 1/3, moins d'1/3 = <b>éliminatoire</b>.
+      (Source : arrêté du 23 avril 2012.)
+    </div>
+    <div class="result-actions" style="justify-content:flex-start;margin:16px 0 22px;">
+      <button class="btn" id="drawFicheBtn">🎲 Tirer une fiche au sort</button>
+    </div>
+    <div id="drawnFiche"></div>
+    <h2 style="margin-top:28px;">Les 12 fiches, en détail</h2>
+    <div id="oralList"></div>`;
+  $('#drawFicheBtn').addEventListener('click', ()=>{
+    const f = ORAL_FICHES[Math.floor(Math.random()*ORAL_FICHES.length)];
+    $('#drawnFiche').innerHTML = oralFicheCardHTML(f, true);
+  });
+  $('#oralList').innerHTML = ORAL_FICHES.map(f=>oralFicheCardHTML(f, false)).join('');
+}
+function oralFicheCardHTML(f, drawn){
+  return `<div class="qcard" style="margin-bottom:14px;${drawn?'border-color:var(--yellow);':''}">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+      <span class="badge-score done" style="background:rgba(255,197,61,.15);color:var(--yellow);">FICHE N°${f.n}</span>
+      ${drawn ? '<span style="font-size:12px;color:var(--yellow);">Tirée au sort 🎲</span>' : ''}
+    </div>
+    <div class="qtext" style="font-size:17px;margin-bottom:14px;">${f.title}</div>
+    ${f.groups.map(g=>`
+      <div style="margin-bottom:12px;">
+        <b style="font-size:13.5px;color:var(--teal);display:block;margin-bottom:5px;">${g.h}</b>
+        <ul style="margin:0;padding-left:18px;font-size:13.5px;color:var(--muted);line-height:1.6;">
+          ${g.pts.map(p=>`<li>${p}</li>`).join('')}
+        </ul>
+      </div>`).join('')}
+  </div>`;
+}
+
 function renderMemos(){
   view.innerHTML = `
   <div class="panel">
